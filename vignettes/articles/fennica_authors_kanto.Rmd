@@ -33,7 +33,7 @@ knitr::kable(fennica_subset,caption = "few selected fennica data")
 ```
 
 We used the two main columns we used are `Code_1000` and	`Code_7001` which contain the `asteriID` digits and extract those digits and use them to fetch information from finto/kanto. The columns were renamed as they are originally [MARC 21 format  for bibliographical data](https://marc21.kansalliskirjasto.fi/bib/index.htm) which represent fields `100/0` and `700/o `
-So the processed output of the retrieved finto/kanto data can be found using the provided code below.
+So the processed output of the retrieved finto/kanto data can be found using the provided code below. It provides extra many columns including the profession related information.
 
 ```{r message = FALSE, warning = FALSE}
 authors_df <- finto::process_and_fetch_kanto_info(fennica_subset)
