@@ -16,7 +16,7 @@ suppressMessages(suppressWarnings({
   if (!requireNamespace("devtools", quietly = TRUE)) {
     install.packages("devtools", quiet = TRUE)
   }
-  devtools::install_github("ake123/finto", quiet = TRUE)
+  devtools::install_github("fennicahub/finto", quiet = TRUE)
 }))
 ```
 
