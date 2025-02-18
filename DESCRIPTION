@@ -31,8 +31,8 @@ Suggests:
     testthat (>= 3.0.0),
     rmarkdown,
     knitr
-URL: https://ropengov.github.io/finna/, https://CRAN.R-project.org/package=finna
-BugReports: https://github.com/rOpenGov/finna/issues
+URL: https://fennicahub.github.io/finna/, https://CRAN.R-project.org/package=finna
+BugReports: https://github.com/fennicahub/finna/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3

@@ -1,9 +1,8 @@
 # finna
 
-[![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](https://ropengov.org/)
-[![R-CMD-check](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/rOpenGov/finna/actions/workflows/check-standard.yaml)
-[![issues](https://img.shields.io/github/issues/rOpenGov/finna)](https://github.com/rOpenGov/finna/issues)
-[![pulls](https://img.shields.io/github/issues-pr/rOpenGov/finna)](https://github.com/rOpenGov/finna/pulls)
+[![R-CMD-check](https://github.com/fennicahub/finna/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/fennicahub/finna/actions/workflows/check-standard.yaml)
+[![issues](https://img.shields.io/github/issues/fennicahub/finna)](https://github.com/fennicahub/finna/issues)
+[![pulls](https://img.shields.io/github/issues-pr/fennicahub/finna)](https://github.com/fennicahub/finna/pulls)
 
 
 The `finna` package provides tools to access and analyze metadata from the Finna API, which aggregates content from Finnish archives, libraries, and museums.
@@ -22,12 +21,12 @@ The devel version of finna can be installed from GitHub as follows:
 ``` r
 # Install finna if not already installed
 if (!requireNamespace("finna", quietly = TRUE)) {
-  remotes::install_github("rOpenGov/finna")
+  remotes::install_github("fennicahub/finna")
 }
 ```
 
 ``` r
-remotes::install_github("rOpenGov/finna")
+remotes::install_github("fennicahub/finna")
 ```
 
 ## Example
@@ -72,10 +71,10 @@ head(record)
 
 Contributions are very welcome:
 
-- [Use issue tracker](https://github.com/ropengov/finna/issues) for
+- [Use issue tracker](https://github.com/fennicahub/finna/issues) for
   feedback and bug reports.
-- [Send pull requests](https://github.com/ropengov/finna/)
-- [Star us on the Github page](https://github.com/ropengov/finna/)
+- [Send pull requests](https://github.com/fennicahub/finna/)
+- [Star us on the Github page](https://github.com/fennicahub/finna/)
 
 ## Acknowledgements
 
