@@ -85,7 +85,7 @@ function helps enrich metadata for bibliographic records.</p>
 <code>Code_7001</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finto/" class="external-link">finto</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"fennica_subset"</span>,package <span class="op">=</span> <span class="st">"finna"</span><span class="op">)</span></span>
@@ -166,36 +166,51 @@ and extract those digits and use them to fetch information from
 finto/kanto. The columns were renamed as they are originally <a href="https://marc21.kansalliskirjasto.fi/bib/index.htm" class="external-link">MARC 21 format
 for bibliographical data</a> which represent fields <code>100/0</code>
 and <code>700/o</code> So the processed output of the retrieved
-finto/kanto data can be found using the provided code below.</p>
+finto/kanto data can be found using the provided code below. It provides
+extra many columns including the profession related information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/finto/man/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://fennicahub.github.io/finto/reference/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
-<table style="width:100%;" class="table">
+<table class="table">
 <caption>Authors Data Frame from kanto</caption>
 <colgroup>
-<col width="2%">
-<col width="10%">
-<col width="13%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="3%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
 <col width="7%">
-<col width="2%">
-<col width="2%">
 <col width="1%">
-<col width="2%">
 <col width="1%">
-<col width="2%">
-<col width="2%">
+<col width="1%">
+<col width="4%">
+<col width="3%">
 <col width="1%">
 <col width="2%">
 <col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="5%">
+<col width="3%">
+<col width="3%">
 <col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="3%">
 <col width="6%">
+<col width="3%">
 <col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="9%">
-<col width="8%">
-<col width="2%">
-<col width="4%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">asteriID</th>
@@ -221,6 +236,20 @@ finto/kanto data can be found using the provided code below.</p>
 <th align="left">inScheme</th>
 <th align="left">created</th>
 <th align="left">modified</th>
+<th align="left">profession_metadata_uri</th>
+<th align="left">profession_metadata_prefLabel_fi</th>
+<th align="left">profession_metadata_prefLabel_sv</th>
+<th align="left">profession_metadata_entryTerms</th>
+<th align="left">profession_metadata_belongsToGroup</th>
+<th align="left">profession_metadata_broader</th>
+<th align="left">profession_metadata_narrower</th>
+<th align="left">profession_metadata_related</th>
+<th align="left">profession_metadata_created</th>
+<th align="left">profession_metadata_modified</th>
+<th align="left">profession_metadata_closeMatch</th>
+<th align="left">profession_metadata_source</th>
+<th align="left">profession_metadata_downloadFormats</th>
+<th align="left">profession_labels</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -241,7 +270,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">biologist</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
 <td align="left">1867</td>
 <td align="left">1951</td>
 <td align="left">NA</td>
@@ -250,6 +279,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1997-12-17</td>
 <td align="left">2023-04-20T12:31:37</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
+<td align="left">biologi</td>
+<td align="left">biolog</td>
+<td align="left">biologit, biologer, biologists</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p16443" class="external-link uri">http://www.yso.fi/onto/yso/p16443</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, Nationell RDA-term,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">biologist</td>
 </tr>
 <tr class="even">
 <td align="left">000084103</td>
@@ -269,7 +314,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">physiologist</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
 <td align="left">1876</td>
 <td align="left">1954</td>
 <td align="left">NA</td>
@@ -278,6 +323,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1998-05-15</td>
 <td align="left">2023-04-20T12:31:45</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
+<td align="left">fysiologi</td>
+<td align="left">fysiolog</td>
+<td align="left">fysiologer, physiologists, fysiologit</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p20543" class="external-link uri">http://www.yso.fi/onto/yso/p20543</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">physiologist</td>
 </tr>
 <tr class="odd">
 <td align="left">NA</td>
@@ -303,6 +364,104 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000090610</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
+</td>
+<td align="left">1839</td>
+<td align="left">1914</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1998-07-22</td>
+<td align="left">2023-04-20T12:29:54</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a></td>
+<td align="left">sosiaalipoliitikko</td>
+<td align="left">socialpolitiker</td>
+<td align="left">sosiaalipoliitikot, social politicians</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p18723" class="external-link uri">http://www.yso.fi/onto/yso/p18723</a></td>
+<td align="left">YSO-termi, ALLFO-term, Kansallinen RDA-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">social politician, lawyer</td>
 </tr>
 <tr class="even">
 <td align="left">000090610</td>
@@ -321,7 +480,9 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">social politician, lawyer</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
+</td>
 <td align="left">1839</td>
 <td align="left">1914</td>
 <td align="left">NA</td>
@@ -330,6 +491,23 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1998-07-22</td>
 <td align="left">2023-04-20T12:29:54</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a></td>
+<td align="left">juristi</td>
+<td align="left">jurist</td>
+<td align="left">lakinaiset, jurister, lawyers, lakimiehet,
+juristit</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p2496" class="external-link uri">http://www.yso.fi/onto/yso/p2496</a></td>
+<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">social politician, lawyer</td>
 </tr>
 <tr class="odd">
 <td align="left">000091625</td>
@@ -349,7 +527,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">rune singer</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
 <td align="left">1788</td>
 <td align="left">1847</td>
 <td align="left">NA</td>
@@ -358,6 +536,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1997-10-21</td>
 <td align="left">2022-09-02T19:14:58</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
+<td align="left">runonlaulaja</td>
+<td align="left">runosångare</td>
+<td align="left">rune singers, Karelian folk singers, runonlaulajat</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2673" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2673</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p19490" class="external-link uri">http://www.yso.fi/onto/yso/p19490</a></td>
+<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">rune singer</td>
 </tr>
 </tbody>
 </table>
@@ -392,38 +586,52 @@ as <code>asteriID</code>.</p></li>
 <span></span>
 <span><span class="co"># View the merged dataset</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">merged_data</span>, caption <span class="op">=</span> <span class="st">"Merged fennica kanto"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <caption>Merged fennica kanto</caption>
 <colgroup>
+<col width="0%">
+<col width="2%">
 <col width="1%">
-<col width="4%">
-<col width="4%">
-<col width="3%">
-<col width="7%">
+<col width="1%">
 <col width="3%">
 <col width="1%">
-<col width="8%">
-<col width="10%">
+<col width="0%">
+<col width="3%">
 <col width="5%">
-<col width="1%">
 <col width="2%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
 <col width="1%">
 <col width="1%">
+<col width="0%">
+<col width="6%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="3%">
+<col width="3%">
+<col width="0%">
 <col width="1%">
-<col width="2%">
-<col width="1%">
-<col width="1%">
-<col width="2%">
+<col width="3%">
 <col width="2%">
 <col width="2%">
 <col width="4%">
-<col width="1%">
-<col width="1%">
+<col width="3%">
+<col width="3%">
 <col width="2%">
-<col width="7%">
-<col width="6%">
+<col width="2%">
+<col width="2%">
 <col width="2%">
 <col width="3%">
+<col width="5%">
+<col width="3%">
+<col width="2%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">ID</th>
@@ -455,6 +663,20 @@ as <code>asteriID</code>.</p></li>
 <th align="left">inScheme</th>
 <th align="left">created</th>
 <th align="left">modified</th>
+<th align="left">profession_metadata_uri</th>
+<th align="left">profession_metadata_prefLabel_fi</th>
+<th align="left">profession_metadata_prefLabel_sv</th>
+<th align="left">profession_metadata_entryTerms</th>
+<th align="left">profession_metadata_belongsToGroup</th>
+<th align="left">profession_metadata_broader</th>
+<th align="left">profession_metadata_narrower</th>
+<th align="left">profession_metadata_related</th>
+<th align="left">profession_metadata_created</th>
+<th align="left">profession_metadata_modified</th>
+<th align="left">profession_metadata_closeMatch</th>
+<th align="left">profession_metadata_source</th>
+<th align="left">profession_metadata_downloadFormats</th>
+<th align="left">profession_labels</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -481,7 +703,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">biologist</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
 <td align="left">1867</td>
 <td align="left">1951</td>
 <td align="left">NA</td>
@@ -490,6 +712,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1997-12-17</td>
 <td align="left">2023-04-20T12:31:37</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
+<td align="left">biologi</td>
+<td align="left">biolog</td>
+<td align="left">biologit, biologer, biologists</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p16443" class="external-link uri">http://www.yso.fi/onto/yso/p16443</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, Nationell RDA-term,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">biologist</td>
 </tr>
 <tr class="even">
 <td align="left">000864525</td>
@@ -515,7 +753,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">physiologist</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
 <td align="left">1876</td>
 <td align="left">1954</td>
 <td align="left">NA</td>
@@ -524,6 +762,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1998-05-15</td>
 <td align="left">2023-04-20T12:31:45</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
+<td align="left">fysiologi</td>
+<td align="left">fysiolog</td>
+<td align="left">fysiologer, physiologists, fysiologit</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p20543" class="external-link uri">http://www.yso.fi/onto/yso/p20543</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">physiologist</td>
 </tr>
 <tr class="odd">
 <td align="left">000864526</td>
@@ -555,6 +809,110 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864526</td>
+<td align="left">00000cam a2200421 i 4500</td>
+<td align="left">Linnaniemi, Walter L.</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864528</td>
+<td align="left">00000cam a2200925 i 4500</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Cronvall, Timo.</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
 </tr>
 <tr class="even">
 <td align="left">000864528</td>
@@ -586,6 +944,20 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA, NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864529</td>
@@ -610,7 +982,9 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">social politician, lawyer</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
+</td>
 <td align="left">1839</td>
 <td align="left">1914</td>
 <td align="left">NA</td>
@@ -619,8 +993,76 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1998-07-22</td>
 <td align="left">2023-04-20T12:29:54</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a></td>
+<td align="left">sosiaalipoliitikko</td>
+<td align="left">socialpolitiker</td>
+<td align="left">sosiaalipoliitikot, social politicians</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p18723" class="external-link uri">http://www.yso.fi/onto/yso/p18723</a></td>
+<td align="left">YSO-termi, ALLFO-term, Kansallinen RDA-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">social politician, lawyer</td>
 </tr>
 <tr class="even">
+<td align="left">000864529</td>
+<td align="left">00000cam a2201177 i 4500</td>
+<td align="left">Mechelin, L.,</td>
+<td align="left">(FIN11)000090610</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">000090610</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
+</td>
+<td align="left">1839</td>
+<td align="left">1914</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1998-07-22</td>
+<td align="left">2023-04-20T12:29:54</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a></td>
+<td align="left">juristi</td>
+<td align="left">jurist</td>
+<td align="left">lakinaiset, jurister, lawyers, lakimiehet,
+juristit</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p2496" class="external-link uri">http://www.yso.fi/onto/yso/p2496</a></td>
+<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">social politician, lawyer</td>
+</tr>
+<tr class="odd">
 <td align="left">000864530</td>
 <td align="left">00000cam a2200769 i 4500</td>
 <td align="left">NA</td>
@@ -644,7 +1086,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">rune singer</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
 <td align="left">1788</td>
 <td align="left">1847</td>
 <td align="left">NA</td>
@@ -653,6 +1095,22 @@ skos:Concept</td>
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1997-10-21</td>
 <td align="left">2022-09-02T19:14:58</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
+<td align="left">runonlaulaja</td>
+<td align="left">runosångare</td>
+<td align="left">rune singers, Karelian folk singers, runonlaulajat</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2673" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2673</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p19490" class="external-link uri">http://www.yso.fi/onto/yso/p19490</a></td>
+<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">rune singer</td>
 </tr>
 </tbody>
 </table>
