@@ -1,0 +1,12 @@
+^finna\.Rproj$
+^\.Rproj\.user$
+^doc$
+^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^LICENSE\.md$
+.github
+^.*\.tex$
+^.*\.log$
+^finna-manual.tex$
