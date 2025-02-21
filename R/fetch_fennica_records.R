@@ -12,7 +12,7 @@
 #' @param delay_after_query Delay in seconds between queries. Default is 5.
 #' @return A tibble containing all fetched records.
 #' @export
-full_fennica_records <- function(base_query = "*",
+fetch_fennica_records <- function(base_query = "*",
                                   base_filters = c('collection:"FEN"',"finna.include_hidden_parts:1"),
                                   year_ranges = list(c(0, as.numeric(format(Sys.Date(), "%Y")))),
                                   include_na = TRUE,
