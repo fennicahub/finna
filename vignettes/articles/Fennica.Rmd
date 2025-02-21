@@ -43,6 +43,22 @@ fennica <- search_finna("*",filters = c('collection:"FEN"', 'search_daterange_mv
 result_count <- attr(fennica, "result_count")
 print(result_count)
 ```
+To fetch the whole data using batches of years we can use the `fetch_fennica_records()` function as which provides all the fennica data in the given interval including the `NA` dates and hidden parts
+
+```{r message = FALSE, warning = FALSE}
+results <- fetch_fennica_records(
+    base_query = "*",
+    base_filters = c('collection:"VIO"'), # Filters for the Viola collection
+    year_ranges = list(c(1809,1810)),           # Year ranges to query
+    include_na = TRUE,                   # Include records with missing dates
+    limit_per_query = 100000,              # Maximum records per query
+    total_limit = Inf,                 # Overall record limit
+    delay_after_query = 3                # Delay between API calls
+)
+result <- head(results)
+knitr::kable(result,caption = "fennica data")
+```
+
 
 ## Visualization for fennica
 

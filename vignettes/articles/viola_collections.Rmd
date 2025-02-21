@@ -54,6 +54,21 @@ undated_records <- search_finna(
 # View undated records
 print(undated_records)
 ```
+To fetch the whole data using batches of years we can use the `fetch_viola_records()` function as which provides all the viola data in the given interval including the `NA` dates and hidden parts
+
+```{r message = FALSE, warning = FALSE}
+results <- fetch_viola_records(
+    base_query = "*",
+    base_filters = c('collection:"VIO"'), # Filters for the Viola collection
+    year_ranges = list(c(0,1699)),           # Year ranges to query
+    include_na = TRUE,                   # Include records with missing dates
+    limit_per_query = 100000,              # Maximum records per query
+    total_limit = Inf,                 # Overall record limit
+    delay_after_query = 3                # Delay between API calls
+)
+result <- head(results)
+knitr::kable(result,caption = "viola data")
+```
 
 ---
 
