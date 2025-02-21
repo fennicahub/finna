@@ -2,7 +2,7 @@
 % Please edit documentation in R/fetch_viola_records.R
 \name{fetch_viola_records}
 \alias{fetch_viola_records}
-\title{Fetch Records by Year Ranges from Finna API (Including NA Dates)}
+\title{Fetch Viola Records by Year Ranges from Finna API (Including NA Dates)}
 \usage{
 fetch_viola_records(
   base_query = "*",

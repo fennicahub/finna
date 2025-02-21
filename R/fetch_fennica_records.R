@@ -13,7 +13,7 @@
 #' @return A tibble containing all fetched records.
 #' @export
 full_fennica_records <- function(base_query = "*",
-                                  base_filters = c('collection:"FEN"'),
+                                  base_filters = c('collection:"FEN"',"finna.include_hidden_parts:1"),
                                   year_ranges = list(c(0, as.numeric(format(Sys.Date(), "%Y")))),
                                   include_na = TRUE,
                                   limit_per_query = 100000,

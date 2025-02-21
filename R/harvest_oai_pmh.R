@@ -17,7 +17,6 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom tibble as_tibble tibble
 #' @importFrom readr write_csv
-#' @import progress
 #' @export
 #'
 #' @examples
