@@ -67,7 +67,7 @@ results <- fetch_viola_records(
     delay_after_query = 3                # Delay between API calls
 )
 result <- head(results)
-knitr::kable(result,caption = "viola data")
+print(result)
 ```
 
 ---
