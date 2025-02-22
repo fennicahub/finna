@@ -103,7 +103,7 @@ year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <span></span>
 <span><span class="co"># View the number of records fetched</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 3480</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3479</span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
@@ -131,7 +131,7 @@ field:</p>
 <span></span>
 <span><span class="co"># View undated records</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">undated_records</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,685 × 10</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,684 × 10</span></span></span>
 <span><span class="co">##    id             Title    Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fikka.5207343  [Gradua… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    fin      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -144,7 +144,7 @@ field:</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fikka.4997560  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    eng      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fikka.4994228  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> fikka.4994269  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 2,675 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 2,674 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 <p>To fetch the whole data using batches of years we can use the
 <code><a href="../reference/fetch_viola_records.html">fetch_viola_records()</a></code> function as which provides all the
@@ -161,112 +161,16 @@ hidden parts</p>
 <span>    delay_after_query <span class="op">=</span> <span class="fl">3</span>                <span class="co"># Delay between API calls</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span>,caption <span class="op">=</span> <span class="st">"viola data"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<caption>viola data</caption>
-<colgroup>
-<col width="2%">
-<col width="55%">
-<col width="6%">
-<col width="1%">
-<col width="1%">
-<col width="4%">
-<col width="13%">
-<col width="10%">
-<col width="1%">
-<col width="2%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">id</th>
-<th align="left">Title</th>
-<th align="left">Author</th>
-<th align="left">Year</th>
-<th align="left">Language</th>
-<th align="left">Formats</th>
-<th align="left">Subjects</th>
-<th align="left">Library</th>
-<th align="left">Series</th>
-<th align="left">last_indexed</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">fikka.4814436</td>
-<td align="left">Demo</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">zxx</td>
-<td align="left">Äänite, Äänikasetti</td>
-<td align="left">NA</td>
-<td align="left">Kansalliskirjasto</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">fikka.4534833</td>
-<td align="left">Een lijten frögde sangh öfwer den : härliga victoria,
-som hans excell: herr greff Königzmarck, vppå Landtrügen den 7. Januarij
-1678. lyckeligen öfwer Sweriges rijkes hädske fiender erhölt, hwilken
-sång uthi Brahestadz kyrckia den 4. Martij bleff siungen och spelat</td>
-<td align="left">Palm, Zachris, Palm, Zachris</td>
-<td align="left">1678</td>
-<td align="left">swe</td>
-<td align="left">Nuotti</td>
-<td align="left">1678; taistelut; Skoonen sota; Saksa</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">fikka.5207180</td>
-<td align="left">[Antifonarium, graduale ym.]</td>
-<td align="left">NA</td>
-<td align="left">1608</td>
-<td align="left">lat</td>
-<td align="left">Nuotti</td>
-<td align="left">arkistoaineistot; sävellyskäsikirjoitukset</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">fikka.5207182</td>
-<td align="left">[Zachris Collianders skolsångbok]</td>
-<td align="left">NA</td>
-<td align="left">1676</td>
-<td align="left">swe</td>
-<td align="left">Nuotti</td>
-<td align="left">Colliander, Zachris.; arkistoaineistot;
-sävellyskäsikirjoitukset</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">fikka.5207183</td>
-<td align="left">[Graduale Antonii Canuti]</td>
-<td align="left">NA</td>
-<td align="left">1616</td>
-<td align="left">fin</td>
-<td align="left">Nuotti</td>
-<td align="left">arkistoaineistot; sävellyskäsikirjoitukset</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">fikka.5207469</td>
-<td align="left">[Koraalisävelkirja]</td>
-<td align="left">NA</td>
-<td align="left">1679</td>
-<td align="left">lat</td>
-<td align="left">Nuotti</td>
-<td align="left">arkistoaineistot; sävellyskäsikirjoitukset</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-</tbody>
-</table>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
+<span><span class="co">##   id    Title Author Year  Language Formats Subjects Library Series last_indexed</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> fikk… Demo  <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> fikk… Een … Palm,… 1678  swe      Nuotti  1678; t… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> fikk… [Ant… <span style="color: #BB0000;">NA</span>     1608  lat      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fikk… [Zac… <span style="color: #BB0000;">NA</span>     1676  swe      Nuotti  Collian… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> fikk… [Gra… <span style="color: #BB0000;">NA</span>     1616  fin      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> fikk… [Kor… <span style="color: #BB0000;">NA</span>     1679  lat      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span></span></span></code></pre>
 <hr>
 </div>
 </div>
@@ -279,7 +183,7 @@ and plotting functions.</p>
 <div class="section level4">
 <h4 id="author-distribution">Author Distribution<a class="anchor" aria-label="anchor" href="#author-distribution"></a>
 </h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>

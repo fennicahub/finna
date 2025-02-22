@@ -129,7 +129,7 @@ follows:</p>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">result_count</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">fennica</span>, <span class="st">"result_count"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result_count</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 54434</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 54425</span></span></code></pre>
 <p>To fetch the whole data using batches of years we can use the
 <code><a href="../reference/fetch_fennica_records.html">fetch_fennica_records()</a></code> function as which provides all the
 fennica data in the given interval including the <code>NA</code> dates
@@ -145,131 +145,26 @@ and hidden parts</p>
 <span>    delay_after_query <span class="op">=</span> <span class="fl">3</span>                <span class="co"># Delay between API calls</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span>,caption <span class="op">=</span> <span class="st">"fennica data"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<caption>fennica data</caption>
-<colgroup>
-<col width="3%">
-<col width="51%">
-<col width="14%">
-<col width="0%">
-<col width="1%">
-<col width="2%">
-<col width="9%">
-<col width="12%">
-<col width="1%">
-<col width="2%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">id</th>
-<th align="left">Title</th>
-<th align="left">Author</th>
-<th align="left">Year</th>
-<th align="left">Language</th>
-<th align="left">Formats</th>
-<th align="left">Subjects</th>
-<th align="left">Library</th>
-<th align="left">Series</th>
-<th align="left">last_indexed</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">fikka.3850300</td>
-<td align="left">Yxinkertainen puhe, jolla Herran huonetta welwollisesa
-arwosa pitämään, ja sen suhteen oikein itzensä käyttämään,
-sanankuulioitansa joulu-aamuna wuonna 1808, koska korswärkin rakennus
-Kangasnemesä auwaistin yhteisen Iumalan palveluxen toimittamisexi,
-ylöskehoitti Aron Molander, prowasti ja kirkkoherra</td>
-<td align="left">Molander, Aron Claudii, Frenckell, Johan Christopher II
-(kirjapaino, Turku, 1785-1814)</td>
-<td align="left">1809</td>
-<td align="left">fin</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">kirkkorakennukset; avajaiset; Kangasniemi</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat,
-Pohjoissali, mikrofilmit</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">jykdok.1195248</td>
-<td align="left">Kort beskrifning om Åland</td>
-<td align="left">Djurberg, Daniel</td>
-<td align="left">1809</td>
-<td align="left">swe</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">Ahvenanmaa; Åland</td>
-<td align="left">Jyväskylän yliopisto, Kanavuoren varasto</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">fikka.3931193</td>
-<td align="left">Sång till finska arméen, af P. A. Granberg</td>
-<td align="left">Granberg, Per Adolf, Deleen, Carl (kirjapaino,
-Tukholma, 1802-1846)</td>
-<td align="left">1809</td>
-<td align="left">swe</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">1800-luku (vuosikymmen); armeijat; Suomen sota;
-Suomi</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat,
-Pohjoissali, mikrofilmit</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">fikka.4117837</td>
-<td align="left">De tretton dagarne, eller Finland</td>
-<td align="left">Gagarin, Pavel Gavrilovitš</td>
-<td align="left">1810</td>
-<td align="left">swe</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">travel accounts; Finland</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">fikka.3931183</td>
-<td align="left">Sång till finska arméns ära, af P.A. Wallmark. Skrift,
-som vunnit stora priset i Svenska akademien, d. 8 Juli 1809</td>
-<td align="left">Wallmark, P. A., Rosenstein, Nils von, Sohm, Peter
-(kirjapaino, Tukholma, 1805-1818)</td>
-<td align="left">1809</td>
-<td align="left">swe</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">Suomen sota</td>
-<td align="left">Kansalliskirjasto, Erikoislukusaliin tilattavat,
-Pohjoissali, mikrofilmit</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">uef.993060973705966</td>
-<td align="left">Finland und seine Bewohner</td>
-<td align="left">Rühs, Friedrich</td>
-<td align="left">1809</td>
-<td align="left">deu</td>
-<td align="left">Kirja, Kirja</td>
-<td align="left">NA</td>
-<td align="left">Itä-Suomen yliopisto, Joensuun kampuskirjasto, Ei
-lainattavat</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-</tbody>
-</table>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
+<span><span class="co">##   id    Title Author Year  Language Formats Subjects Library Series last_indexed</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> fikk… Yxin… Molan… 1809  fin      Kirja,… kirkkor… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> jykd… Kort… Djurb… 1809  swe      Kirja,… Ahvenan… Jyväsk… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> fikk… Sång… Granb… 1809  swe      Kirja,… 1800-lu… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fikk… De t… Gagar… 1810  swe      Kirja,… travel … Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> fikk… Sång… Wallm… 1809  swe      Kirja,… Suomen … Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> fikk… Finl… Rühs,… 1809  deu      Kirja,… 1700-lu… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="visualization-for-fennica">Visualization for fennica<a class="anchor" aria-label="anchor" href="#visualization-for-fennica"></a>
 </h2>
 <p>We can use any of the functions provided to visualize the data</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">fennica</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">fennica</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"*"</span>,filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"FEN"'</span>, <span class="st">'search_daterange_mv:"[1809 TO 1918]"'</span><span class="op">)</span><span class="op">)</span></span>
