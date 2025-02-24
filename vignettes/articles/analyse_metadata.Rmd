@@ -28,7 +28,7 @@ library(ggplot2)
 sibelius_data <- search_finna("sibelius")
 
 # Refine metadata and display missing data summary
-refined_data <- refine_metadata(sibelius_data, verbose = TRUE)
+refined_data <- refine_metadata(sibelius_data)
 print(refined_data)
 ```
 
@@ -45,8 +45,8 @@ refined_data <- refine_metadata(sibelius_data)
 
 # Plot top 10 authors with frequency percentages
 top_plot(refined_data$Author, field = "Author", ntop = 10, show.percentage = TRUE) +
-    xlab("Frequency") +  
-    ylab("Number of Authors")
+    xlab("Author") +  
+    ylab("Percentage")
 ```
 
 ### **Yearly Publication Distribution**
