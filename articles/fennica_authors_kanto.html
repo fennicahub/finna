@@ -169,7 +169,7 @@ and <code>700/o</code> So the processed output of the retrieved
 finto/kanto data can be found using the provided code below. It provides
 extra many columns including the profession related information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://fennicahub.github.io/finto/reference/process_and_fetch_kanto_info.html" class="external-link">process_and_fetch_kanto_info</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://fennicahub.github.io/finto/reference/get_kanto.html" class="external-link">get_kanto</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <caption>Authors Data Frame from kanto</caption>
@@ -581,8 +581,8 @@ YSO-termi</td>
 Fennica dataset, you can follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Process the KANTO Data</strong>: Use the
-<code>process_and_fetch_kanto_info</code> function to retrieve and
-process the author information from the KANTO database.</p></li>
+<code>get_kanto</code> function to retrieve and process the author
+information from the KANTO database.</p></li>
 <li><p><strong>Merge with Fennica Data</strong>: Combine the processed
 KANTO data with your Fennica dataset based on a common identifier, such
 as <code>asteriID</code>.</p></li>
@@ -1157,10 +1157,10 @@ YSO-termi</td>
 <p><strong>Explanation</strong>:</p>
 <ul>
 <li><p><strong>Processing KANTO Data</strong>: The
-<code>process_and_fetch_kanto_info</code> function extracts
-<code>asteriID</code>s from the <code>fennica_data</code> and fetches
-corresponding RDF data from the Finto Skosmos API. It returns a cleaned
-tibble with the retrieved data, including profession labels.</p></li>
+<code>get_kanto</code> function extracts <code>asteriID</code>s from the
+<code>fennica_data</code> and fetches corresponding RDF data from the
+Finto Skosmos API. It returns a cleaned tibble with the retrieved data,
+including profession labels.</p></li>
 <li><p><strong>Merging Datasets</strong>: The
 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::left_join</a></code> function merges the
 <code>fennica_data</code> with the <code>kanto_authors</code> data on
