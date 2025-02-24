@@ -2,51 +2,58 @@
 #'
 #' @description
 #' The `refine_metadata` function cleans and standardizes Finna metadata by:
-#' - **Validating Required Fields:** Checks for the presence of key metadata fields and returns `NULL` if any are missing.
-#' - **Handling Missing Values:** Replaces `NA` values in critical fields with descriptive placeholder text (e.g., "Unknown Title").
-#' - **Selecting Relevant Fields:** Keeps only the following fields for streamlined analysis:
-#'   - `Title`: The title of the resource.
-#'   - `Author`: The creator or author of the resource.
-#'   - `Year`: The publication or release year.
-#'   - `Language`: The language of the resource.
-#'   - `Formats`: The format(s) of the resource (e.g., Book, Audio).
-#'   - `Subjects`: The subject keywords or classifications.
-#'   - `Library`: The owning library or institution.
-#'   - `Series`: The series or collection the resource belongs to.
+#' - **Validating Required Fields:** Ensures the presence of specified fields and returns `NULL` if any are missing.
+#' - **Selecting Relevant Fields:** Allows users to specify which metadata fields to retain.
+#' - **Handling Missing Values (Optional):** If `fill_na = TRUE`, replaces `NA` values with placeholders.
+#' - **Logging Missing Data (Optional):** If `verbose = TRUE`, prints a summary of missing values.
 #'
 #' @param data A tibble containing raw Finna metadata.
-#' @return A tibble with selected, cleaned metadata fields, or NULL if required fields are missing.
+#' @param fields A character vector of metadata fields to retain. Defaults to standard fields.
+#' @param fill_na Logical. If `TRUE`, replaces `NA` values with placeholders. Defaults to `FALSE`.
+#' @param verbose Logical. If `TRUE`, prints a summary of missing values. Defaults to `FALSE`.
+#' @return A tibble with selected metadata fields, or NULL if required fields are missing.
 #' @import dplyr
 #' @export
 #' @examples
 #' library(finna)
 #' sibelius_data <- search_finna("sibelius")
-#' refine_metadata(sibelius_data)
+#' refine_metadata(sibelius_data, fill_na = TRUE, verbose = TRUE)
 #'
-refine_metadata <- function(data) {
-  required_columns <- c("Title", "Author", "Year", "Language", "Formats", "Subjects", "Library", "Series")
+refine_metadata <- function(data,
+                            fields = c("Title", "Author", "Year", "Language",
+                                       "Formats", "Subjects", "Library", "Series"),
+                            fill_na = FALSE,
+                            verbose = FALSE) {
 
   # Check if the required columns exist in the data
-  missing_columns <- setdiff(required_columns, names(data))
+  missing_columns <- setdiff(fields, names(data))
 
   if (length(missing_columns) > 0) {
     warning(paste("The following required columns are missing:", paste(missing_columns, collapse = ", ")))
     return(NULL)  # Return NULL if any required columns are missing
   }
 
-  # Proceed with refining the metadata if all required columns are present
-  refined <- data %>%
-    dplyr::mutate(
-      Title = if_else(is.na(.data$Title), "Unknown Title", Title),
-      Author = if_else(is.na(.data$Author), "Unknown Author", Author),
-      Year = if_else(is.na(.data$Year), "Unknown Year", Year),
-      Language = if_else(is.na(.data$Language), "Unknown Language", Language),
-      Formats = if_else(is.na(.data$Formats), "Unknown Format", Formats),
-      Subjects = if_else(is.na(.data$Subjects), "Unknown Subjects", Subjects),
-      Library = if_else(is.na(.data$Library), "Unknown Library", Library),
-      Series = if_else(is.na(.data$Series), "Unknown Series", Series)
-    ) %>%
-    select(Title, Author, Year, Language, Formats, Subjects, Library, Series)
+  # Select relevant fields
+  refined <- data %>% select(all_of(fields))
+
+  # Handle missing values if requested
+  if (fill_na) {
+    refined <- refined %>%
+      mutate(across(everything(), ~ ifelse(is.na(.), paste("Unknown", cur_column()), .)))
+  }
+
+  # Print missing value summary if verbose mode is enabled
+  if (verbose) {
+    missing_summary <- colSums(is.na(refined))
+    missing_summary <- missing_summary[missing_summary > 0]  # Keep only columns with missing values
+
+    if (length(missing_summary) > 0) {
+      message("Missing values detected:\n",
+              paste(names(missing_summary), ":", missing_summary, collapse = "\n"))
+    } else {
+      message("No missing values found.")
+    }
+  }
 
   return(refined)
 }
