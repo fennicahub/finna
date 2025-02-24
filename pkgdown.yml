@@ -2,10 +2,10 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
+  articles/analyse_metadata: analyse_metadata.html
   articles/fennica_authors_kanto: fennica_authors_kanto.html
   articles/Fennica: Fennica.html
   articles/finna_collections: finna_collections.html
-  articles/refinemetadata: refinemetadata.html
   vignette: vignette.html
   articles/viola_collections: viola_collections.html
-last_built: 2025-02-22T11:58Z
+last_built: 2025-02-24T12:40Z
