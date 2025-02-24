@@ -36,7 +36,7 @@ We used the two main columns we used are `Code_1000` and	`Code_7001` which conta
 So the processed output of the retrieved finto/kanto data can be found using the provided code below. It provides extra many columns including the profession related information.
 
 ```{r message = FALSE, warning = FALSE}
-authors_df <- finto::process_and_fetch_kanto_info(fennica_subset)
+authors_df <- finto::get_kanto(fennica_subset)
 knitr::kable(authors_df, caption = "Authors Data Frame from kanto")
 ```
 
@@ -45,7 +45,7 @@ knitr::kable(authors_df, caption = "Authors Data Frame from kanto")
 
 To integrate the processed KANTO author data with your existing Fennica dataset, you can follow these steps:
 
-1. **Process the KANTO Data**: Use the `process_and_fetch_kanto_info` function to retrieve and process the author information from the KANTO database.
+1. **Process the KANTO Data**: Use the `get_kanto` function to retrieve and process the author information from the KANTO database.
 
 2. **Merge with Fennica Data**: Combine the processed KANTO data with your Fennica dataset based on a common identifier, such as `asteriID`.
 
@@ -73,7 +73,7 @@ knitr::kable(merged_data, caption = "Merged fennica kanto")
 
 **Explanation**:
 
-- **Processing KANTO Data**: The `process_and_fetch_kanto_info` function extracts `asteriID`s from the `fennica_data` and fetches corresponding RDF data from the Finto Skosmos API. It returns a cleaned tibble with the retrieved data, including profession labels.
+- **Processing KANTO Data**: The `get_kanto` function extracts `asteriID`s from the `fennica_data` and fetches corresponding RDF data from the Finto Skosmos API. It returns a cleaned tibble with the retrieved data, including profession labels.
 
 - **Merging Datasets**: The `dplyr::left_join` function merges the `fennica_data` with the `kanto_authors` data on the `asteriID` column. This ensures that all records from `fennica_data` are retained, and matching author information from `kanto_authors` is added.
 
