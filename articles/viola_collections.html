@@ -189,9 +189,9 @@ and plotting functions.</p>
 <span></span>
 <span><span class="co"># Refine metadata and visualize author distribution</span></span>
 <span><span class="va">refined_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine_metadata.html">refine_metadata</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">refined_data</span>, field <span class="op">=</span> <span class="st">"Year"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Custom X-axis label</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Year"</span><span class="op">)</span>  <span class="co"># Custom Y-axis label</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">$</span><span class="va">Author</span>, field <span class="op">=</span> <span class="st">"Author"</span>, ntop <span class="op">=</span> <span class="fl">10</span>, show.percentage <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"Author"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Custom X-axis label</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Percentage"</span><span class="op">)</span>  <span class="co"># Custom Y-axis label</span></span></code></pre></div>
 <p><img src="viola_collections_files/figure-html/unnamed-chunk-4-1.png" alt="viola author distribution" width="700"></p>
 </div>
 </div>
