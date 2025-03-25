@@ -17,6 +17,8 @@
 <url><loc>/reference/fetch_all_records.html</loc></url>
 <url><loc>/reference/fetch_fennica_records.html</loc></url>
 <url><loc>/reference/fetch_finna.html</loc></url>
+<url><loc>/reference/fetch_identifiers_with_sets.html</loc></url>
+<url><loc>/reference/fetch_oai_sets.html</loc></url>
 <url><loc>/reference/fetch_viola_records.html</loc></url>
 <url><loc>/reference/finna_as_json.html</loc></url>
 <url><loc>/reference/finna_cite.html</loc></url>

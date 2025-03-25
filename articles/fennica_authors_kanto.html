@@ -77,7 +77,7 @@ function helps enrich metadata for bibliographic records.</p>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fennicahub/finto"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fennicahub/finto"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>After downloading the package we select the columns <code>id</code>,
 <code>Title</code>, <code>Author</code>, <code>Name_100a</code>
@@ -89,74 +89,686 @@ function helps enrich metadata for bibliographic records.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"fennica_subset"</span>,package <span class="op">=</span> <span class="st">"finna"</span><span class="op">)</span></span>
-<span><span class="va">fennica_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
+<span><span class="va">fennica_subset</span> <span class="op">&lt;-</span> <span class="va">fennica_subset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">fennica_subset</span>,caption <span class="op">=</span> <span class="st">"few selected fennica data"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <caption>few selected fennica data</caption>
 <colgroup>
-<col width="7%">
-<col width="18%">
-<col width="16%">
-<col width="12%">
+<col width="0%">
+<col width="1%">
+<col width="8%">
+<col width="1%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="4%">
+<col width="6%">
+<col width="1%">
+<col width="0%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="0%">
+<col width="3%">
+<col width="0%">
+<col width="4%">
+<col width="0%">
+<col width="0%">
+<col width="2%">
 <col width="31%">
-<col width="12%">
+<col width="17%">
+<col width="1%">
+<col width="0%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">ID</th>
-<th align="left">Author</th>
-<th align="left">Name_100a</th>
-<th align="left">Code_1000</th>
-<th align="left">Code_7000</th>
-<th align="left">Code_7001</th>
+<th align="left">melinda_id</th>
+<th align="left">leader</th>
+<th align="left">008</th>
+<th align="left">author_name</th>
+<th align="left">author_date</th>
+<th align="left">author_ID</th>
+<th align="left">language</th>
+<th align="left">language_original</th>
+<th align="left">title_uniform</th>
+<th align="left">title</th>
+<th align="left">title_remainder</th>
+<th align="left">publication_place</th>
+<th align="left">publisher</th>
+<th align="left">physical_dimensions</th>
+<th align="left">physical_extent</th>
+<th align="left">publication_frequency</th>
+<th align="left">publication_interval</th>
+<th align="left">signum</th>
+<th align="left">location_852</th>
+<th align="left">UDK</th>
+<th align="left">UDK_aux</th>
+<th align="left">245n</th>
+<th align="left">genre_655</th>
+<th align="left">650a</th>
+<th align="left">general_note</th>
+<th align="left">700a</th>
+<th align="left">700_0</th>
+<th align="left">a.15</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">000864524</td>
-<td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Reuter, Enzio,</td>
-<td align="left">(FIN11)000080453</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">000864206</td>
+<td align="left">00000cem a2200661 i 4500</td>
+<td align="left">970626s1997 fi agk bi|b|||||||||fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin|swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Maastokartta :</td>
+<td align="left">peruskartta 1:20000 = grundkarta 1:20000.</td>
+<td align="left">4213 08,</td>
+<td align="left">[Helsinki] :</td>
+<td align="left">Maanmittauslaitos,</td>
+<td align="left">59 x 67 cm, taitettuna 20 x 12 cm</td>
+<td align="left">1 kartta :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ka01</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">4213 08,</td>
+<td align="left"></td>
+<td align="left">maastokartat|kartat|terrängkartor|kartor</td>
+<td align="left">0-meridiaani : Greenwich.|Kartan esitystekniikka:
+maastokartta.|Maastotäydennys 1996.</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">000864525</td>
+<td align="left">000864207</td>
 <td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Wendt, Georg von,</td>
-<td align="left">(FIN11)000084103</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">970626s1913 fi |||||||||||||||||swe|</td>
+<td align="left">Granit, A. W.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Anteckningar om geografiska benämningar i Enare
+lappmark /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Sällskapet för Finlands geografi,</td>
+<td align="left"></td>
+<td align="left">14 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Maantiede -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">På omslaget: 1911-1912.</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">000864526</td>
+<td align="left">000864209</td>
+<td align="left">00000cas a22003852i 4500</td>
+<td align="left">970626d19061920fi |||m| |||||||||b0fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kotilieden ääressä :</td>
+<td align="left">kertomuksia lapsille.</td>
+<td align="left"></td>
+<td align="left">Sortavala :</td>
+<td align="left">Suomen kirkon sisälähetys-seura,</td>
+<td align="left">16:o</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2-12.</td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864210</td>
+<td align="left">00000cam a22003972i 4500</td>
+<td align="left">970626s1913 fi |||||||||||||||||swe|</td>
+<td align="left">Fieandt, Alvar von.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Fiskarhalföns och ön Kildins geografi /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Sällskapet för Finlands geografi,</td>
+<td align="left"></td>
+<td align="left">98 s., 12 kuvaliitettä, 1 karttaliite :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Geol. &amp; mineral. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">På omslaget: 1911-1912.</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864211</td>
+<td align="left">00000cam a2200469 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Wilhelmi,</td>
+<td align="left">1854-1922.</td>
+<td align="left">(FIN11)000069536</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jumalan kieltäjä /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lapua :</td>
+<td align="left">Herättäjä,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864212</td>
+<td align="left">00000cam a2201525 i 4500</td>
+<td align="left">971103s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Huoponen, Kaarina,</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Irti huumeista! :</td>
+<td align="left">mitä jokaisen on hyvä tietää huumeista /</td>
+<td align="left"></td>
+<td align="left">Helsinki :</td>
+<td align="left">Irti huumeista,</td>
+<td align="left">22 cm</td>
+<td align="left">51 sivua :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ea 005913</td>
+<td align="left"></td>
+<td align="left">613.8|613.83</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">huumeet|nuoret|huumeongelmat|ennaltaehkäisy|hoito|riippuvuus|vieroitus|huumausainerikokset|lait|rikosoikeus|katkaisuhoito|hoitomenetelmät|huumepolitiikka|päihdehuolto|lainsäädäntö|narkotika|ungdomar|narkotikaproblem|förebyggande|vård|beroende|avvänjning|narkotikabrott|lagar|straffrätt|avgiftning|behandlingsmetoder|narkotikapolitik|missbrukarvård|lagstiftning</td>
+<td align="left">Lisäpainokset: [2. p.] 1998.</td>
+<td align="left">Solomon, Mirja E.,</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864213</td>
+<td align="left">00000cam a22003972i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||swe|</td>
+<td align="left">Ljung, Vidar.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ilmarinen :</td>
+<td align="left">tankar, fragment och utkast till studium av olika folks
+religionsuppfattning.</td>
+<td align="left">1 /</td>
+<td align="left">Helsingfors :</td>
+<td align="left">Waseniuska Bokhandeln, distr.,</td>
+<td align="left">12:o</td>
+<td align="left">20 s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1 /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864216</td>
+<td align="left">00000cam a2200433 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||f|fin|</td>
+<td align="left">Malot, Hector.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000051751</td>
+<td align="left">fin</td>
+<td align="left">und</td>
+<td align="left"></td>
+<td align="left">Kosto :</td>
+<td align="left">romaani /</td>
+<td align="left"></td>
+<td align="left">Lappeenranta :</td>
+<td align="left">Osuuskunta Saimaa,</td>
+<td align="left"></td>
+<td align="left">149, [1] s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Suom. kaunokirj. 2 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">käännökset|översättningar</td>
+<td align="left"></td>
+<td align="left">Suomennos</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864217</td>
+<td align="left">00000cam a22005894i 4500</td>
+<td align="left">970626s1907 fi |||||||||||||||0|fin|</td>
+<td align="left">Mangasarian, M. M.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000090724</td>
+<td align="left">fin</td>
+<td align="left">eng</td>
+<td align="left">A new catechism.</td>
+<td align="left">Uusi Katkismus eli maailma ilman Jumalaa /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kuopio :</td>
+<td align="left">Savon työväen sanomalehti-osuuskunta,</td>
+<td align="left"></td>
+<td align="left">114, [1] s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Me kastamme kahdennenkymmenennen vuosisadan rauhan,
+vapauden ja edistyksen nimeen! Me ristimme sen kansojen vuosisadaksi. Me
+vaadimme uudelta vuosisadalta uskontoa ilman taikuutta, politiikkaa
+ilman sotia, tiedettä ja ihanteellista taidetta; sekä hyvinvointia ilman
+kurjuutta ja vääryyttä!.</td>
+<td align="left">Monisti.</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864218</td>
+<td align="left">00000cas a22004452i 4500</td>
+<td align="left">970626d19131917fi ||| | |||||1|||b0fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Oulun l. etel. vp. sos.-dem. Kajaanin alipiirikokouksen
+pöytäkirja.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Oulu :</td>
+<td align="left">[Oulun läänin eteläinen vaalipiiri],</td>
+<td align="left">8:o</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">5(1913)-1917.</td>
+<td align="left">Puol.sos.dem. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">kokousjulkaisut|konferenspublikationer</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864219</td>
+<td align="left">00000cam a2200397 i 4500</td>
+<td align="left">970626s1911 fi |||||||||||||||||swe|</td>
+<td align="left">Lorris, Jean.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Landsbygdens och städernas arbetare :</td>
+<td align="left">ha de gemensamma intressen, eller böra de bekämpa
+varandra? /</td>
+<td align="left"></td>
+<td align="left">Åbo :</td>
+<td align="left">“Arbetets” förlag,</td>
+<td align="left"></td>
+<td align="left">20 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Työväenkys. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864220</td>
+<td align="left">00000cam a2200553 i 4500</td>
+<td align="left">970626s1912 fi |||||||||||||||0|swe|</td>
+<td align="left">Louhivuori, O. W.,</td>
+<td align="left">1884-1953.</td>
+<td align="left">(FIN11)000084960</td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Den sociala alkoholfrågan :</td>
+<td align="left">nykterhetens Vänners tavlor för åskådningsundervisning,
+3:dje serien : förklaringar och källförteckning /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">[kustantaja tuntematon],</td>
+<td align="left"></td>
+<td align="left">31 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Raittius 3 -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Alcohol Drinking|Social Aspects</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864221</td>
+<td align="left">00000cam a2200745 i 4500</td>
+<td align="left">970626s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Skinnari, Pekka.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000077783</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Works 4.0 for Windows 95 -monikäyttöohjelma /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kotka :</td>
+<td align="left">Kymdata,</td>
+<td align="left">30 cm</td>
+<td align="left">127, [3] lehteä :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Eb 002648</td>
+<td align="left"></td>
+<td align="left">004|681.3|681.3.06</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tietokoneohjelmat|Works for Windows|datorprogram|Works
+for Windows</td>
+<td align="left"></td>
+<td align="left">Sappinen, Ilkka.</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864222</td>
+<td align="left">00000cam a2200397 i 4500</td>
+<td align="left">970626s1914 fi |||||||||||||||||swe|</td>
+<td align="left">Lucko, Y. Y.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left">eng</td>
+<td align="left"></td>
+<td align="left">“Jag tror på den Helige Ande” /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Örebro :</td>
+<td align="left">E. O. Nylins Traktatmission,</td>
+<td align="left"></td>
+<td align="left">[4] s</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K. Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Översatt fr. engelskan</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864223</td>
 <td align="left">00000cam a2200421 i 4500</td>
-<td align="left">Linnaniemi, Walter L.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">000864528</td>
-<td align="left">00000cam a2200925 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Cronvall, Timo.</td>
-<td align="left">NA</td>
+<td align="left">970626s1912 fi |||||||||||||||s|swe|</td>
+<td align="left">Lunde, Albert G.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Gören bättring och tron evangelium :</td>
+<td align="left">tal hållet i Helsingfors den 4 mars 1912 /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Svenska K. F. U. M.,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mf.|K.Saarnakirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">000864529</td>
-<td align="left">00000cam a2201177 i 4500</td>
-<td align="left">Mechelin, L.,</td>
-<td align="left">(FIN11)000090610</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">000864224</td>
+<td align="left">00000cam a2200853 i 4500</td>
+<td align="left">970626s1909 fi |||||||||||||||0|fin|</td>
+<td align="left">Manner, Viktor.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000085939</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Asunto-olosuhteet Hämeenlinnan kaupungissa v. 1908
+/</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hämeenlinna :</td>
+<td align="left">[kustantaja tuntematon],</td>
+<td align="left">25 cm</td>
+<td align="left">44 s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lääketiede 3 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hygiene|asutus|asuminen|asunnot|olosuhteet|asumisterveys|bebyggelse|boende|bostäder|omständigheter|boendehälsa</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">000864530</td>
-<td align="left">00000cam a2200769 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Kuronen, Soili.|Kainulainen, Juhana,</td>
-<td align="left">(FIN11)000091625</td>
+<td align="left">000864225</td>
+<td align="left">00000cam a2200865 i 4500</td>
+<td align="left">970626s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Asmundela, Mauri.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Tilusjärjestelyt luonnonsuojelualueiden toteuttamisessa
+/</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Espoo :</td>
+<td align="left">Teknillinen korkeakoulu,</td>
+<td align="left">25 cm</td>
+<td align="left">45, [3] s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ea 004275</td>
+<td align="left"></td>
+<td align="left">502/504|712/719|332|347.234|349.6|502.4</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tilusjärjestelyt|tilukset|luonnonsuojelualueet|uusjako|suunnittelu|kiinteistöt|ägoregleringar|ägor|naturskyddsområden|nyskifte|planering|fastigheter|teknologia|teknologi</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">000864226</td>
+<td align="left">00000cam a2200877 i 4500</td>
+<td align="left">970626s1909 fi |||||||||||||||0|fin|</td>
+<td align="left">Manner, Viktor.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000085939</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Terveys- ja sairashoidolliset olot Hämeenlinnan
+kaupungissa /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hämeenlinna :</td>
+<td align="left">Enok Rytkönen [jakaja],</td>
+<td align="left">25 cm</td>
+<td align="left">121, [2] sivua, karttaliite :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lääketiede 3 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tilastot|statistik</td>
+<td align="left">Hygiene|Public
+Health|Statistics|terveys|hygienia|hälsa|hygien</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">000864227</td>
+<td align="left">00000cam a2200373 i 4500</td>
+<td align="left">970626s1912 fi |||||||||||||||s|swe|</td>
+<td align="left">Lunde, Albert G.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jerusalems vittnen :</td>
+<td align="left">tal hållet i Nikolaikyrkan den 26 februari 1912 /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Svenska K. F. U. M.,</td>
+<td align="left"></td>
+<td align="left">13 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Saarnakirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -171,14 +783,13 @@ extra many columns including the profession related information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://fennicahub.github.io/finto/reference/get_kanto.html" class="external-link">get_kanto</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <caption>Authors Data Frame from kanto</caption>
 <colgroup>
 <col width="0%">
 <col width="3%">
 <col width="4%">
 <col width="2%">
-<col width="0%">
 <col width="1%">
 <col width="0%">
 <col width="0%">
@@ -186,23 +797,24 @@ extra many columns including the profession related information.</p>
 <col width="0%">
 <col width="0%">
 <col width="0%">
-<col width="1%">
+<col width="0%">
+<col width="0%">
 <col width="1%">
 <col width="0%">
+<col width="14%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="3%">
+<col width="2%">
+<col width="0%">
+<col width="1%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
 <col width="6%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
 <col width="3%">
-<col width="3%">
-<col width="0%">
-<col width="1%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="4%">
-<col width="4%">
 <col width="3%">
 <col width="3%">
 <col width="3%">
@@ -210,8 +822,8 @@ extra many columns including the profession related information.</p>
 <col width="3%">
 <col width="3%">
 <col width="5%">
-<col width="4%">
-<col width="2%">
+<col width="3%">
+<col width="1%">
 <col width="1%">
 </colgroup>
 <thead><tr class="header">
@@ -257,37 +869,135 @@ extra many columns including the profession related information.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">000080453</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000080453" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000080453</a></td>
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">
-<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
-skos:Concept</td>
-<td align="left">Reuter, Enzio, 1867-1951</td>
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
-<td align="left">1867</td>
-<td align="left">1951</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006353" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006353</a></td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1997-12-17</td>
-<td align="left">2023-04-20T12:31:37</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
-<td align="left">biologist</td>
-<td align="left">biologi</td>
-<td align="left">biolog</td>
-<td align="left">biologit, biologer, biologists</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
+<td align="left">poet</td>
+<td align="left">runoilija</td>
+<td align="left">diktare</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter,
+lyyrikot</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
+<td align="left">priest</td>
+<td align="left">pappi</td>
+<td align="left">präst</td>
+<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
+priests, minister</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a></td>
+<td align="left">member of parliament</td>
+<td align="left">kansanedustaja</td>
+<td align="left">riksdagsledamot</td>
+<td align="left">riksdagsmän, riksdagsledamöter, members of parliament,
+kansanedustajat, riksdagskvinnor</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
 <td align="left">NA</td>
@@ -295,20 +1005,344 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p16443" class="external-link uri">http://www.yso.fi/onto/yso/p16443</a></td>
-<td align="left">Kansallinen RDA-termi, ALLFO-term, Nationell RDA-term,
+<td align="left"><a href="http://www.yso.fi/onto/yso/p1520" class="external-link uri">http://www.yso.fi/onto/yso/p1520</a></td>
+<td align="left">ALLFO-term, Nationell RDA-term, YSO-termi, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a></td>
+<td align="left">nonfiction writer</td>
+<td align="left">tietokirjailija</td>
+<td align="left">fackboksförfattare</td>
+<td align="left">tietokirjailijat, nonfiction writers, non-fiction
+writers</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a></td>
+<td align="left">Nationell RDA-term, Kansallinen RDA-termi, ALLFO-term,
 YSO-termi</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a></td>
+<td align="left">NA</td>
+<td align="left">opettaja</td>
+<td align="left">lärare</td>
+<td align="left">opettaja (ammatti), lärare (yrke)</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p1117" class="external-link uri">http://www.yso.fi/onto/yso/p1117</a></td>
+<td align="left">YSO-termi, Nationell RDA-term, ALLFO-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
+<td align="left">poet</td>
+<td align="left">runoilija</td>
+<td align="left">diktare</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter,
+lyyrikot</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a></td>
+<td align="left">bishop</td>
+<td align="left">piispa</td>
+<td align="left">biskop</td>
+<td align="left">bishops, biskopar, piispat</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2901" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2901</a></td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5769" class="external-link uri">http://www.yso.fi/onto/yso/p5769</a></td>
+<td align="left">Kansallinen RDA-termi, Nationell RDA-term, ALLFO-term,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
+<td align="left">priest</td>
+<td align="left">pappi</td>
+<td align="left">präst</td>
+<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
+priests, minister</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000051751</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000051751" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000051751</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malot, Hector</td>
+<td align="left">Malot, Hector Henri</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-07T15:55:56</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">000084103</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084103" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084103</a></td>
+<td align="left">000090724</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090724" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090724</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Monisti</td>
+<td align="left">Rautell, Emil Frithiof</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-03-01</td>
+<td align="left">2021-11-19T15:23:48</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000084960</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084960" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084960</a></td>
 <td align="left">
 <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
 skos:Concept</td>
-<td align="left">Wendt, Georg von, 1876-1954</td>
+<td align="left">Louhivuori, O. W., 1884-1953</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -320,20 +1354,21 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
-<td align="left">1876</td>
-<td align="left">1954</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">1884</td>
+<td align="left">1953</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006521" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006521</a></td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-000907" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-000907</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-05-15</td>
-<td align="left">2023-04-20T12:31:45</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
-<td align="left">physiologist</td>
-<td align="left">fysiologi</td>
-<td align="left">fysiolog</td>
-<td align="left">fysiologer, physiologists, fysiologit</td>
+<td align="left">1995-10-09</td>
+<td align="left">2025-02-19T18:34:17</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">economist</td>
+<td align="left">taloustieteilijä</td>
+<td align="left">nationalekonom</td>
+<td align="left">nationalekonomer, economists, ekonomister, ekonomistit,
+taloustieteilijät</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
 <td align="left">NA</td>
@@ -341,101 +1376,19 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p20543" class="external-link uri">http://www.yso.fi/onto/yso/p20543</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p20003" class="external-link uri">http://www.yso.fi/onto/yso/p20003</a></td>
 <td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
 RDA-termi</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
-<tr class="odd">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
 <tr class="even">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000090610</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
+<td align="left">000077783</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000077783" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000077783</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
-<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">Skinnari, Pekka</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -447,42 +1400,15 @@ RDA-termi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
-</td>
-<td align="left">1839</td>
-<td align="left">1914</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-07-22</td>
-<td align="left">2023-04-20T12:29:54</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a></td>
-<td align="left">social politician</td>
-<td align="left">sosiaalipoliitikko</td>
-<td align="left">socialpolitiker</td>
-<td align="left">sosiaalipoliitikot, social politicians</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p18723" class="external-link uri">http://www.yso.fi/onto/yso/p18723</a></td>
-<td align="left">YSO-termi, ALLFO-term, Kansallinen RDA-termi, Nationell
-RDA-term</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000090610</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">1993-05-07</td>
+<td align="left">2020-11-08T15:48:32</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -494,44 +1420,20 @@ RDA-term</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
-</td>
-<td align="left">1839</td>
-<td align="left">1914</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-07-22</td>
-<td align="left">2023-04-20T12:29:54</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a></td>
-<td align="left">lawyer</td>
-<td align="left">juristi</td>
-<td align="left">jurist</td>
-<td align="left">lakinaiset, jurister, lawyers, lakimiehet,
-juristit</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p2496" class="external-link uri">http://www.yso.fi/onto/yso/p2496</a></td>
-<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA, NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">000091625</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000091625" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000091625</a></td>
+<td align="left">000085939</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000085939" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000085939</a></td>
 <td align="left">
 <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
 skos:Concept</td>
-<td align="left">Kainulainen, Juhana, 1788-1847</td>
+<td align="left">Manner, Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -543,31 +1445,28 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
-<td align="left">1788</td>
-<td align="left">1847</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1997-10-21</td>
-<td align="left">2022-09-02T19:14:58</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
-<td align="left">rune singer</td>
-<td align="left">runonlaulaja</td>
-<td align="left">runosångare</td>
-<td align="left">rune singers, Karelian folk singers, runonlaulajat</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2673" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2673</a></td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-08T16:21:48</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p19490" class="external-link uri">http://www.yso.fi/onto/yso/p19490</a></td>
-<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
@@ -589,77 +1488,119 @@ as <code>asteriID</code>.</p></li>
 </ol>
 <p>Here’s how you can achieve this in R:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Assuming fennica_subset has columns 'Code_1000' and 'Code_7001'</span></span>
+<code class="sourceCode R"><span><span class="co"># Extract one or two Asteri IDs from the 'author_ID' column</span></span>
 <span><span class="va">fennica_subset</span> <span class="op">&lt;-</span> <span class="va">fennica_subset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    asteriID_1000 <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html" class="external-link">str_extract</a></span><span class="op">(</span><span class="va">Code_1000</span>, <span class="st">"\\d{9}"</span><span class="op">)</span>,</span>
-<span>    asteriID_7001 <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html" class="external-link">str_extract</a></span><span class="op">(</span><span class="va">Code_7001</span>, <span class="st">"\\d{9}"</span><span class="op">)</span>,</span>
-<span>    asteriID <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/coalesce.html" class="external-link">coalesce</a></span><span class="op">(</span><span class="va">asteriID_1000</span>, <span class="va">asteriID_7001</span><span class="op">)</span></span>
+<span>    asteriIDs <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html" class="external-link">str_extract_all</a></span><span class="op">(</span><span class="va">author_ID</span>, <span class="st">"\\d{9}"</span><span class="op">)</span>,</span>
+<span>    asteriID <span class="op">=</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">asteriIDs</span>, <span class="op">~</span> <span class="va">.x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>  <span class="co"># use the first Asteri ID only</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">asteriID_1000</span>, <span class="op">-</span><span class="va">asteriID_7001</span><span class="op">)</span>  <span class="co"># Remove intermediate columns if not needed</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">asteriIDs</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Merge the processed KANTO data with the Fennica dataset</span></span>
-<span><span class="co"># Ensure 'asteriID' is the common column for merging</span></span>
+<span><span class="co"># Merge with authors_df using 'asteriID' (ensure authors_df has that column)</span></span>
 <span><span class="va">merged_data</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">fennica_subset</span>, <span class="va">authors_df</span>, by <span class="op">=</span> <span class="st">"asteriID"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># View the merged dataset</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">merged_data</span>, caption <span class="op">=</span> <span class="st">"Merged fennica kanto"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<caption>Merged fennica kanto</caption>
+<span><span class="co"># Show result</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">merged_data</span>, caption <span class="op">=</span> <span class="st">"Merged Fennica + KANTO Data"</span><span class="op">)</span></span></code></pre></div>
+<table style="width:100%;" class="table">
+<caption>Merged Fennica + KANTO Data</caption>
 <colgroup>
 <col width="0%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
+<col width="0%">
+<col width="4%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="2%">
 <col width="3%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
 <col width="1%">
 <col width="0%">
-<col width="3%">
-<col width="4%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
 <col width="2%">
 <col width="0%">
 <col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
+<col width="1%">
+<col width="17%">
+<col width="9%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
 <col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
 <col width="0%">
 <col width="6%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
-<col width="3%">
-<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="0%">
 <col width="0%">
 <col width="1%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="4%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="5%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
 <col width="3%">
 <col width="1%">
 <col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">ID</th>
-<th align="left">Author</th>
-<th align="left">Name_100a</th>
-<th align="left">Code_1000</th>
-<th align="left">Code_7000</th>
-<th align="left">Code_7001</th>
+<th align="left">melinda_id</th>
+<th align="left">leader</th>
+<th align="left">008</th>
+<th align="left">author_name</th>
+<th align="left">author_date</th>
+<th align="left">author_ID</th>
+<th align="left">language</th>
+<th align="left">language_original</th>
+<th align="left">title_uniform</th>
+<th align="left">title</th>
+<th align="left">title_remainder</th>
+<th align="left">publication_place</th>
+<th align="left">publisher</th>
+<th align="left">physical_dimensions</th>
+<th align="left">physical_extent</th>
+<th align="left">publication_frequency</th>
+<th align="left">publication_interval</th>
+<th align="left">signum</th>
+<th align="left">location_852</th>
+<th align="left">UDK</th>
+<th align="left">UDK_aux</th>
+<th align="left">245n</th>
+<th align="left">genre_655</th>
+<th align="left">650a</th>
+<th align="left">general_note</th>
+<th align="left">700a</th>
+<th align="left">700_0</th>
+<th align="left">a.15</th>
 <th align="left">asteriID</th>
 <th align="left">uri</th>
 <th align="left">type</th>
@@ -702,95 +1643,497 @@ as <code>asteriID</code>.</p></li>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">000864524</td>
-<td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Reuter, Enzio,</td>
-<td align="left">(FIN11)000080453</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">000080453</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000080453" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000080453</a></td>
-<td align="left">
-<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
-skos:Concept</td>
-<td align="left">Reuter, Enzio, 1867-1951</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
-<td align="left">1867</td>
-<td align="left">1951</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006353" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006353</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1997-12-17</td>
-<td align="left">2023-04-20T12:31:37</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2676" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2676</a></td>
-<td align="left">biologist</td>
-<td align="left">biologi</td>
-<td align="left">biolog</td>
-<td align="left">biologit, biologer, biologists</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">000864206</td>
+<td align="left">00000cem a2200661 i 4500</td>
+<td align="left">970626s1997 fi agk bi|b|||||||||fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin|swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Maastokartta :</td>
+<td align="left">peruskartta 1:20000 = grundkarta 1:20000.</td>
+<td align="left">4213 08,</td>
+<td align="left">[Helsinki] :</td>
+<td align="left">Maanmittauslaitos,</td>
+<td align="left">59 x 67 cm, taitettuna 20 x 12 cm</td>
+<td align="left">1 kartta :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ka01</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">4213 08,</td>
+<td align="left"></td>
+<td align="left">maastokartat|kartat|terrängkartor|kartor</td>
+<td align="left">0-meridiaani : Greenwich.|Kartan esitystekniikka:
+maastokartta.|Maastotäydennys 1996.</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p16443" class="external-link uri">http://www.yso.fi/onto/yso/p16443</a></td>
-<td align="left">Kansallinen RDA-termi, ALLFO-term, Nationell RDA-term,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">000864525</td>
+<td align="left">000864207</td>
 <td align="left">00000cam a2200445 i 4500</td>
-<td align="left">Wendt, Georg von,</td>
-<td align="left">(FIN11)000084103</td>
+<td align="left">970626s1913 fi |||||||||||||||||swe|</td>
+<td align="left">Granit, A. W.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Anteckningar om geografiska benämningar i Enare
+lappmark /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Sällskapet för Finlands geografi,</td>
+<td align="left"></td>
+<td align="left">14 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Maantiede -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">På omslaget: 1911-1912.</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">000084103</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084103" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084103</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864209</td>
+<td align="left">00000cas a22003852i 4500</td>
+<td align="left">970626d19061920fi |||m| |||||||||b0fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kotilieden ääressä :</td>
+<td align="left">kertomuksia lapsille.</td>
+<td align="left"></td>
+<td align="left">Sortavala :</td>
+<td align="left">Suomen kirkon sisälähetys-seura,</td>
+<td align="left">16:o</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">2-12.</td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864210</td>
+<td align="left">00000cam a22003972i 4500</td>
+<td align="left">970626s1913 fi |||||||||||||||||swe|</td>
+<td align="left">Fieandt, Alvar von.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Fiskarhalföns och ön Kildins geografi /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Sällskapet för Finlands geografi,</td>
+<td align="left"></td>
+<td align="left">98 s., 12 kuvaliitettä, 1 karttaliite :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Geol. &amp; mineral. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">På omslaget: 1911-1912.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864211</td>
+<td align="left">00000cam a2200469 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Wilhelmi,</td>
+<td align="left">1854-1922.</td>
+<td align="left">(FIN11)000069536</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jumalan kieltäjä /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lapua :</td>
+<td align="left">Herättäjä,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">
-<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
-skos:Concept</td>
-<td align="left">Wendt, Georg von, 1876-1954</td>
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
-<td align="left">1876</td>
-<td align="left">1954</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006521" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006521</a></td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-05-15</td>
-<td align="left">2023-04-20T12:31:45</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3357" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3357</a></td>
-<td align="left">physiologist</td>
-<td align="left">fysiologi</td>
-<td align="left">fysiolog</td>
-<td align="left">fysiologer, physiologists, fysiologit</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
+<td align="left">poet</td>
+<td align="left">runoilija</td>
+<td align="left">diktare</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter,
+lyyrikot</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864211</td>
+<td align="left">00000cam a2200469 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Wilhelmi,</td>
+<td align="left">1854-1922.</td>
+<td align="left">(FIN11)000069536</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jumalan kieltäjä /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lapua :</td>
+<td align="left">Herättäjä,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
+<td align="left">priest</td>
+<td align="left">pappi</td>
+<td align="left">präst</td>
+<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
+priests, minister</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864211</td>
+<td align="left">00000cam a2200469 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Wilhelmi,</td>
+<td align="left">1854-1922.</td>
+<td align="left">(FIN11)000069536</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jumalan kieltäjä /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lapua :</td>
+<td align="left">Herättäjä,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a></td>
+<td align="left">member of parliament</td>
+<td align="left">kansanedustaja</td>
+<td align="left">riksdagsledamot</td>
+<td align="left">riksdagsmän, riksdagsledamöter, members of parliament,
+kansanedustajat, riksdagskvinnor</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
 <td align="left">NA</td>
@@ -798,213 +2141,927 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p20543" class="external-link uri">http://www.yso.fi/onto/yso/p20543</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p1520" class="external-link uri">http://www.yso.fi/onto/yso/p1520</a></td>
+<td align="left">ALLFO-term, Nationell RDA-term, YSO-termi, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864212</td>
+<td align="left">00000cam a2201525 i 4500</td>
+<td align="left">971103s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Huoponen, Kaarina,</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Irti huumeista! :</td>
+<td align="left">mitä jokaisen on hyvä tietää huumeista /</td>
+<td align="left"></td>
+<td align="left">Helsinki :</td>
+<td align="left">Irti huumeista,</td>
+<td align="left">22 cm</td>
+<td align="left">51 sivua :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ea 005913</td>
+<td align="left"></td>
+<td align="left">613.8|613.83</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">huumeet|nuoret|huumeongelmat|ennaltaehkäisy|hoito|riippuvuus|vieroitus|huumausainerikokset|lait|rikosoikeus|katkaisuhoito|hoitomenetelmät|huumepolitiikka|päihdehuolto|lainsäädäntö|narkotika|ungdomar|narkotikaproblem|förebyggande|vård|beroende|avvänjning|narkotikabrott|lagar|straffrätt|avgiftning|behandlingsmetoder|narkotikapolitik|missbrukarvård|lagstiftning</td>
+<td align="left">Lisäpainokset: [2. p.] 1998.</td>
+<td align="left">Solomon, Mirja E.,</td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864213</td>
+<td align="left">00000cam a22003972i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||||swe|</td>
+<td align="left">Ljung, Vidar.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ilmarinen :</td>
+<td align="left">tankar, fragment och utkast till studium av olika folks
+religionsuppfattning.</td>
+<td align="left">1 /</td>
+<td align="left">Helsingfors :</td>
+<td align="left">Waseniuska Bokhandeln, distr.,</td>
+<td align="left">12:o</td>
+<td align="left">20 s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1 /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a></td>
+<td align="left">nonfiction writer</td>
+<td align="left">tietokirjailija</td>
+<td align="left">fackboksförfattare</td>
+<td align="left">tietokirjailijat, nonfiction writers, non-fiction
+writers</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a></td>
+<td align="left">Nationell RDA-term, Kansallinen RDA-termi, ALLFO-term,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a></td>
+<td align="left">NA</td>
+<td align="left">opettaja</td>
+<td align="left">lärare</td>
+<td align="left">opettaja (ammatti), lärare (yrke)</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p1117" class="external-link uri">http://www.yso.fi/onto/yso/p1117</a></td>
+<td align="left">YSO-termi, Nationell RDA-term, ALLFO-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
+<td align="left">poet</td>
+<td align="left">runoilija</td>
+<td align="left">diktare</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter,
+lyyrikot</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a></td>
+<td align="left">bishop</td>
+<td align="left">piispa</td>
+<td align="left">biskop</td>
+<td align="left">bishops, biskopar, piispat</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2901" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2901</a></td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5769" class="external-link uri">http://www.yso.fi/onto/yso/p5769</a></td>
+<td align="left">Kansallinen RDA-termi, Nationell RDA-term, ALLFO-term,
+YSO-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864215</td>
+<td align="left">00000cam a22006372i 4500</td>
+<td align="left">970626s1908 fi |||||||||||||||||fin|</td>
+<td align="left">Malmivaara, Väinö,</td>
+<td align="left">1879-1958.</td>
+<td align="left">(FIN11)000101747</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Herännäisyyden vainioilta.</td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left">Tampere :</td>
+<td align="left">Väinämöisen kirjakauppa,</td>
+<td align="left"></td>
+<td align="left">86 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">1. /</td>
+<td align="left"></td>
+<td align="left">seurat (uskonnolliset tilaisuudet)|bönemöten</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
+<td align="left">priest</td>
+<td align="left">pappi</td>
+<td align="left">präst</td>
+<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
+priests, minister</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
+<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA, NA, NA, NA, NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864216</td>
+<td align="left">00000cam a2200433 i 4500</td>
+<td align="left">970626s1910 fi |||||||||||||||f|fin|</td>
+<td align="left">Malot, Hector.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000051751</td>
+<td align="left">fin</td>
+<td align="left">und</td>
+<td align="left"></td>
+<td align="left">Kosto :</td>
+<td align="left">romaani /</td>
+<td align="left"></td>
+<td align="left">Lappeenranta :</td>
+<td align="left">Osuuskunta Saimaa,</td>
+<td align="left"></td>
+<td align="left">149, [1] s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Suom. kaunokirj. 2 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">käännökset|översättningar</td>
+<td align="left"></td>
+<td align="left">Suomennos</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000051751</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000051751" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000051751</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malot, Hector</td>
+<td align="left">Malot, Hector Henri</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-07T15:55:56</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864217</td>
+<td align="left">00000cam a22005894i 4500</td>
+<td align="left">970626s1907 fi |||||||||||||||0|fin|</td>
+<td align="left">Mangasarian, M. M.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000090724</td>
+<td align="left">fin</td>
+<td align="left">eng</td>
+<td align="left">A new catechism.</td>
+<td align="left">Uusi Katkismus eli maailma ilman Jumalaa /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kuopio :</td>
+<td align="left">Savon työväen sanomalehti-osuuskunta,</td>
+<td align="left"></td>
+<td align="left">114, [1] s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hartauskirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Me kastamme kahdennenkymmenennen vuosisadan rauhan,
+vapauden ja edistyksen nimeen! Me ristimme sen kansojen vuosisadaksi. Me
+vaadimme uudelta vuosisadalta uskontoa ilman taikuutta, politiikkaa
+ilman sotia, tiedettä ja ihanteellista taidetta; sekä hyvinvointia ilman
+kurjuutta ja vääryyttä!.</td>
+<td align="left">Monisti.</td>
+<td align="left"></td>
+<td align="left">000090724</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090724" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090724</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Monisti</td>
+<td align="left">Rautell, Emil Frithiof</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-03-01</td>
+<td align="left">2021-11-19T15:23:48</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864218</td>
+<td align="left">00000cas a22004452i 4500</td>
+<td align="left">970626d19131917fi ||| | |||||1|||b0fin|</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Oulun l. etel. vp. sos.-dem. Kajaanin alipiirikokouksen
+pöytäkirja.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Oulu :</td>
+<td align="left">[Oulun läänin eteläinen vaalipiiri],</td>
+<td align="left">8:o</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">5(1913)-1917.</td>
+<td align="left">Puol.sos.dem. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">kokousjulkaisut|konferenspublikationer</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864219</td>
+<td align="left">00000cam a2200397 i 4500</td>
+<td align="left">970626s1911 fi |||||||||||||||||swe|</td>
+<td align="left">Lorris, Jean.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Landsbygdens och städernas arbetare :</td>
+<td align="left">ha de gemensamma intressen, eller böra de bekämpa
+varandra? /</td>
+<td align="left"></td>
+<td align="left">Åbo :</td>
+<td align="left">“Arbetets” förlag,</td>
+<td align="left"></td>
+<td align="left">20 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Työväenkys. -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864220</td>
+<td align="left">00000cam a2200553 i 4500</td>
+<td align="left">970626s1912 fi |||||||||||||||0|swe|</td>
+<td align="left">Louhivuori, O. W.,</td>
+<td align="left">1884-1953.</td>
+<td align="left">(FIN11)000084960</td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Den sociala alkoholfrågan :</td>
+<td align="left">nykterhetens Vänners tavlor för åskådningsundervisning,
+3:dje serien : förklaringar och källförteckning /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">[kustantaja tuntematon],</td>
+<td align="left"></td>
+<td align="left">31 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Raittius 3 -1972|Käsifilmistö - filmikortit</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Alcohol Drinking|Social Aspects</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000084960</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084960" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084960</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Louhivuori, O. W., 1884-1953</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">1884</td>
+<td align="left">1953</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-000907" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-000907</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1995-10-09</td>
+<td align="left">2025-02-19T18:34:17</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">economist</td>
+<td align="left">taloustieteilijä</td>
+<td align="left">nationalekonom</td>
+<td align="left">nationalekonomer, economists, ekonomister, ekonomistit,
+taloustieteilijät</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p20003" class="external-link uri">http://www.yso.fi/onto/yso/p20003</a></td>
 <td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
 RDA-termi</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
-<tr class="odd">
-<td align="left">000864526</td>
-<td align="left">00000cam a2200421 i 4500</td>
-<td align="left">Linnaniemi, Walter L.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
 <tr class="even">
-<td align="left">000864526</td>
-<td align="left">00000cam a2200421 i 4500</td>
-<td align="left">Linnaniemi, Walter L.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000864528</td>
-<td align="left">00000cam a2200925 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Cronvall, Timo.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000864528</td>
-<td align="left">00000cam a2200925 i 4500</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Cronvall, Timo.</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000864529</td>
-<td align="left">00000cam a2201177 i 4500</td>
-<td align="left">Mechelin, L.,</td>
-<td align="left">(FIN11)000090610</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">000090610</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
+<td align="left">000864221</td>
+<td align="left">00000cam a2200745 i 4500</td>
+<td align="left">970626s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Skinnari, Pekka.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000077783</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Works 4.0 for Windows 95 -monikäyttöohjelma /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Kotka :</td>
+<td align="left">Kymdata,</td>
+<td align="left">30 cm</td>
+<td align="left">127, [3] lehteä :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Eb 002648</td>
+<td align="left"></td>
+<td align="left">004|681.3|681.3.06</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tietokoneohjelmat|Works for Windows|datorprogram|Works
+for Windows</td>
+<td align="left"></td>
+<td align="left">Sappinen, Ilkka.</td>
+<td align="left"></td>
+<td align="left">000077783</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000077783" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000077783</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
-<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">Skinnari, Pekka</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1016,48 +3073,15 @@ RDA-termi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
-</td>
-<td align="left">1839</td>
-<td align="left">1914</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-07-22</td>
-<td align="left">2023-04-20T12:29:54</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a></td>
-<td align="left">social politician</td>
-<td align="left">sosiaalipoliitikko</td>
-<td align="left">socialpolitiker</td>
-<td align="left">sosiaalipoliitikot, social politicians</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p18723" class="external-link uri">http://www.yso.fi/onto/yso/p18723</a></td>
-<td align="left">YSO-termi, ALLFO-term, Kansallinen RDA-termi, Nationell
-RDA-term</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000864529</td>
-<td align="left">00000cam a2201177 i 4500</td>
-<td align="left">Mechelin, L.,</td>
-<td align="left">(FIN11)000090610</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">000090610</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090610" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090610</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Mechelin, L., 1839-1914</td>
+<td align="left">1993-05-07</td>
+<td align="left">2020-11-08T15:48:32</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1069,50 +3093,187 @@ RDA-term</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2311" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2311</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a>
-</td>
-<td align="left">1839</td>
-<td align="left">1914</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003553" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003553</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1998-07-22</td>
-<td align="left">2023-04-20T12:29:54</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2780" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2780</a></td>
-<td align="left">lawyer</td>
-<td align="left">juristi</td>
-<td align="left">jurist</td>
-<td align="left">lakinaiset, jurister, lawyers, lakimiehet,
-juristit</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p2496" class="external-link uri">http://www.yso.fi/onto/yso/p2496</a></td>
-<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA, NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">000864530</td>
-<td align="left">00000cam a2200769 i 4500</td>
+<td align="left">000864222</td>
+<td align="left">00000cam a2200397 i 4500</td>
+<td align="left">970626s1914 fi |||||||||||||||||swe|</td>
+<td align="left">Lucko, Y. Y.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left">eng</td>
+<td align="left"></td>
+<td align="left">“Jag tror på den Helige Ande” /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Örebro :</td>
+<td align="left">E. O. Nylins Traktatmission,</td>
+<td align="left"></td>
+<td align="left">[4] s</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K. Hartauskirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Översatt fr. engelskan</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">Kuronen, Soili.|Kainulainen, Juhana,</td>
-<td align="left">(FIN11)000091625</td>
-<td align="left">000091625</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000091625" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000091625</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864223</td>
+<td align="left">00000cam a2200421 i 4500</td>
+<td align="left">970626s1912 fi |||||||||||||||s|swe|</td>
+<td align="left">Lunde, Albert G.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Gören bättring och tron evangelium :</td>
+<td align="left">tal hållet i Helsingfors den 4 mars 1912 /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Svenska K. F. U. M.,</td>
+<td align="left"></td>
+<td align="left">15 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mf.|K.Saarnakirj. -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864224</td>
+<td align="left">00000cam a2200853 i 4500</td>
+<td align="left">970626s1909 fi |||||||||||||||0|fin|</td>
+<td align="left">Manner, Viktor.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000085939</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Asunto-olosuhteet Hämeenlinnan kaupungissa v. 1908
+/</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hämeenlinna :</td>
+<td align="left">[kustantaja tuntematon],</td>
+<td align="left">25 cm</td>
+<td align="left">44 s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lääketiede 3 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hygiene|asutus|asuminen|asunnot|olosuhteet|asumisterveys|bebyggelse|boende|bostäder|omständigheter|boendehälsa</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000085939</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000085939" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000085939</a></td>
 <td align="left">
 <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
 skos:Concept</td>
-<td align="left">Kainulainen, Juhana, 1788-1847</td>
+<td align="left">Manner, Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1124,31 +3285,241 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
-<td align="left">1788</td>
-<td align="left">1847</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1997-10-21</td>
-<td align="left">2022-09-02T19:14:58</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3061" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3061</a></td>
-<td align="left">rune singer</td>
-<td align="left">runonlaulaja</td>
-<td align="left">runosångare</td>
-<td align="left">rune singers, Karelian folk singers, runonlaulajat</td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-08T16:21:48</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864225</td>
+<td align="left">00000cam a2200865 i 4500</td>
+<td align="left">970626s1997 fi |||||||||||||||||fin|</td>
+<td align="left">Asmundela, Mauri.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Tilusjärjestelyt luonnonsuojelualueiden toteuttamisessa
+/</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Espoo :</td>
+<td align="left">Teknillinen korkeakoulu,</td>
+<td align="left">25 cm</td>
+<td align="left">45, [3] s. ;</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Ea 004275</td>
+<td align="left"></td>
+<td align="left">502/504|712/719|332|347.234|349.6|502.4</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tilusjärjestelyt|tilukset|luonnonsuojelualueet|uusjako|suunnittelu|kiinteistöt|ägoregleringar|ägor|naturskyddsområden|nyskifte|planering|fastigheter|teknologia|teknologi</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">000864226</td>
+<td align="left">00000cam a2200877 i 4500</td>
+<td align="left">970626s1909 fi |||||||||||||||0|fin|</td>
+<td align="left">Manner, Viktor.</td>
+<td align="left"></td>
+<td align="left">(FIN11)000085939</td>
+<td align="left">fin</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Terveys- ja sairashoidolliset olot Hämeenlinnan
+kaupungissa /</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Hämeenlinna :</td>
+<td align="left">Enok Rytkönen [jakaja],</td>
+<td align="left">25 cm</td>
+<td align="left">121, [2] sivua, karttaliite :</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Lääketiede 3 -1972</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">tilastot|statistik</td>
+<td align="left">Hygiene|Public
+Health|Statistics|terveys|hygienia|hälsa|hygien</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">000085939</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000085939" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000085939</a></td>
 <td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2673" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2673</a></td>
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Manner, Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p19490" class="external-link uri">http://www.yso.fi/onto/yso/p19490</a></td>
-<td align="left">Nationell RDA-term, ALLFO-term, Kansallinen RDA-termi,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-08T16:21:48</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000864227</td>
+<td align="left">00000cam a2200373 i 4500</td>
+<td align="left">970626s1912 fi |||||||||||||||s|swe|</td>
+<td align="left">Lunde, Albert G.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">swe</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Jerusalems vittnen :</td>
+<td align="left">tal hållet i Nikolaikyrkan den 26 februari 1912 /</td>
+<td align="left"></td>
+<td align="left">Helsingfors :</td>
+<td align="left">Svenska K. F. U. M.,</td>
+<td align="left"></td>
+<td align="left">13 s.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">K.Saarnakirj. -1972|Mf.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
