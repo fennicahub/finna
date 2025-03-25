@@ -121,6 +121,10 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
           metadata <- xml_find_first(record, "metadata")
           raw_xml <- as.character(record)
 
+          # Extract setSpec (Collection Name)
+          set_spec_nodes <- xml_find_all(record, ".//setSpec")
+          set_spec <- if (length(set_spec_nodes) > 0) paste(xml_text(set_spec_nodes), collapse = "|") else NA
+
           if (!is.null(metadata)) {
             # Extract all child elements dynamically with unique names
             fields <- xml_find_all(metadata, ".//*[local-name()]")
@@ -133,15 +137,20 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
             # Return a named list with metadata fields and raw XML
             metadata_list <- setNames(as.list(field_data), unique_field_names)
             metadata_list$raw_xml <- raw_xml
+            metadata_list$setSpec <- set_spec  # Store collection name
             metadata_list
           } else {
             list(raw_xml = raw_xml)  # Raw XML only if no metadata
+            list(setSpec = set_spec)
           }
         }, error = function(e) {
           warning("Error parsing record: ", e$message)
           return(NULL)
         })
       })
+
+      # Fetch identifiers and setSpec
+      id_set_map <- fetch_identifiers_with_sets(base_url, metadata_prefix, set, user_agent)
 
       # Filter out NULL results
       record_list <- record_list[!sapply(record_list, is.null)]
@@ -169,9 +178,14 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
       }
     }
 
-    if (verbose && !is.null(pb)) pb$tick(length(records))
+    # Update Progress Bar Safely
+    if (!is.null(pb)) {
+      pb$tick(min(length(record_list), pb$total - pb$current))
+    }
 
-    if (is.na(resumption_token) || resumption_token == "") {
+    # Stop if the record limit is reached
+    if (!is.null(record_limit) && fetched_records >= record_limit) {
+      all_records <- all_records[1:record_limit]
       break
     }
 
@@ -194,6 +208,16 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
   if (verbose) message("Finished harvesting ", nrow(df), " records.")
   return(df)
 }
+
+#' @title Fetch Available OAI-PMH Sets
+#' @description Fetches and lists the available sets (collections) from an OAI-PMH server.
+#' @param base_url A string. The base URL of the OAI-PMH server.
+#' @param user_agent A string. Custom User-Agent string. Default is "OAIHarvester/1.0".
+#' @return A tibble with setSpec and setName columns.
+#' @importFrom httr GET content user_agent
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @export
 fetch_oai_sets <- function(base_url, user_agent = "FinnaHarvester/1.0") {
   url <- paste0(base_url, "?verb=ListSets")
   response <- tryCatch({

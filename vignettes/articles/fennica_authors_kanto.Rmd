@@ -16,7 +16,7 @@ suppressMessages(suppressWarnings({
   if (!requireNamespace("devtools", quietly = TRUE)) {
     install.packages("devtools", quiet = TRUE)
   }
-  devtools::install_github("fennicahub/finto", quiet = TRUE)
+  devtools::install_github("fennicahub/finto", quiet = TRUE, force = TRUE)
 }))
 ```
 
@@ -28,7 +28,8 @@ library(finto)
 library(dplyr)
 library(stringr)
 data("fennica_subset",package = "finna")
-fennica_subset <- tail(fennica_subset)
+fennica_subset <- fennica_subset %>% 
+  slice_head(n = 20)
 knitr::kable(fennica_subset,caption = "few selected fennica data")
 ```
 
@@ -53,21 +54,20 @@ Here's how you can achieve this in R:
 
 ```{r message = FALSE, warning = FALSE}
 
-# Assuming fennica_subset has columns 'Code_1000' and 'Code_7001'
+# Extract one or two Asteri IDs from the 'author_ID' column
 fennica_subset <- fennica_subset %>%
   mutate(
-    asteriID_1000 = str_extract(Code_1000, "\\d{9}"),
-    asteriID_7001 = str_extract(Code_7001, "\\d{9}"),
-    asteriID = coalesce(asteriID_1000, asteriID_7001)
+    asteriIDs = str_extract_all(author_ID, "\\d{9}"),
+    asteriID = purrr::map_chr(asteriIDs, ~ .x[1])  # use the first Asteri ID only
   ) %>%
-  select(-asteriID_1000, -asteriID_7001)  # Remove intermediate columns if not needed
+  select(-asteriIDs)
 
-# Merge the processed KANTO data with the Fennica dataset
-# Ensure 'asteriID' is the common column for merging
+# Merge with authors_df using 'asteriID' (ensure authors_df has that column)
 merged_data <- dplyr::left_join(fennica_subset, authors_df, by = "asteriID")
 
-# View the merged dataset
-knitr::kable(merged_data, caption = "Merged fennica kanto")
+# Show result
+knitr::kable(merged_data, caption = "Merged Fennica + KANTO Data")
+
 
 ```
 
