@@ -33,7 +33,7 @@ fennica_subset <- fennica_subset %>%
 knitr::kable(fennica_subset,caption = "few selected fennica data")
 ```
 
-We used the two main columns we used are `Code_1000` and	`Code_7001` which contain the `asteriID` digits and extract those digits and use them to fetch information from finto/kanto. The columns were renamed as they are originally [MARC 21 format  for bibliographical data](https://marc21.kansalliskirjasto.fi/bib/index.htm) which represent fields `100/0` and `700/o `
+We used the two main columns we used are `Code_1000` and	`Code_7001` which contain the `authorID` digits and extract those digits and use them to fetch information from finto/kanto. The columns were renamed as they are originally [MARC 21 format  for bibliographical data](https://marc21.kansalliskirjasto.fi/bib/index.htm) which represent fields `100/0` and `700/o `
 So the processed output of the retrieved finto/kanto data can be found using the provided code below. It provides extra many columns including the profession related information.
 
 ```{r message = FALSE, warning = FALSE}
@@ -48,36 +48,38 @@ To integrate the processed KANTO author data with your existing Fennica dataset,
 
 1. **Process the KANTO Data**: Use the `get_kanto` function to retrieve and process the author information from the KANTO database.
 
-2. **Merge with Fennica Data**: Combine the processed KANTO data with your Fennica dataset based on a common identifier, such as `asteriID`.
+2. **Merge with Fennica Data**: Combine the processed KANTO data with your Fennica dataset based on a common identifier, such as `authorID`.
 
 Here's how you can achieve this in R:
 
 ```{r message = FALSE, warning = FALSE}
 
-# Extract one or two Asteri IDs from the 'author_ID' column
+# Extract clean 9-digit Author IDs from the 'author_ID' column
 fennica_subset <- fennica_subset %>%
   mutate(
-    asteriIDs = str_extract_all(author_ID, "\\d{9}"),
-    asteriID = purrr::map_chr(asteriIDs, ~ .x[1])  # use the first Asteri ID only
-  ) %>%
-  select(-asteriIDs)
+    authorID = str_extract(author_ID, "\\d{9}")
+  )
 
-# Merge with authors_df using 'asteriID' (ensure authors_df has that column)
-merged_data <- dplyr::left_join(fennica_subset, authors_df, by = "asteriID")
+# Prepare authors_df by ensuring it has a matching 'authorID' column
+authors_df_clean <- authors_df %>%
+  distinct(author_ID, .keep_all = TRUE) %>%
+  rename(authorID = author_ID)
 
-# Show result
+# Merge on the cleaned 'authorID' field
+merged_data <- left_join(fennica_subset, authors_df_clean, by = "authorID")
+
+# Display the merged result
 knitr::kable(merged_data, caption = "Merged Fennica + KANTO Data")
-
 
 ```
 
 **Explanation**:
 
-- **Processing KANTO Data**: The `get_kanto` function extracts `asteriID`s from the `fennica_data` and fetches corresponding RDF data from the Finto Skosmos API. It returns a cleaned tibble with the retrieved data, including profession labels.
+- **Processing KANTO Data**: The `get_kanto` function extracts `authorID`s from the `fennica_data` and fetches corresponding RDF data from the Finto Skosmos API. It returns a cleaned tibble with the retrieved data, including profession labels.
 
-- **Merging Datasets**: The `dplyr::left_join` function merges the `fennica_data` with the `kanto_authors` data on the `asteriID` column. This ensures that all records from `fennica_data` are retained, and matching author information from `kanto_authors` is added.
+- **Merging Datasets**: The `dplyr::left_join` function merges the `fennica_data` with the `kanto_authors` data on the `authorID` column. This ensures that all records from `fennica_data` are retained, and matching author information from `kanto_authors` is added.
 
-**Note**: Ensure that both datasets have the `asteriID` column formatted consistently (e.g., as character strings) to avoid mismatches during the merge.
+**Note**: Ensure that both datasets have the `authorID` column formatted consistently (e.g., as character strings) to avoid mismatches during the merge.
 
 By following these steps, you can enrich your Fennica dataset with detailed author information from the KANTO database, facilitating more comprehensive analyses and insights. 
 
