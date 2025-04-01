@@ -22,7 +22,7 @@ The following example fetches data from the Viola collection for the year ranges
 
 ```{r message = FALSE, warning = FALSE}
 library(finna)
-
+library(tidyverse)
 # Fetch records
 results <- fetch_viola_records(
   base_query = "*",
@@ -69,6 +69,46 @@ results <- fetch_viola_records(
 result <- head(results)
 print(result)
 ```
+
+## Fetching full Viola data
+
+In order to fetch the full Viola data we need to follow the following method as there is a limitation to the maximum allowed API request.
+
+1. We need to divide the whole data into ranges of dates based on their year.
+2. We need to make sure each range of years should return less than the maximum limit which is 100,000.
+3. Since there are hidden collections we need to add in the base filters `"finna.include_hidden_parts:1"``
+4. Then we can follow the same pattern of request as follows.
+
+**Note**
+The more recent years have huge collections so it is recommended to use 1-2 year gap like, `c(2023,2024)`.
+
+year_ranges = list(c(0,1699),c(1700,1799),c(1800,1899),),
+
+Here is the example code for the whole data.
+
+```{r, eval=FALSE}
+fetch_viola_records(
+    base_query = "*",
+    base_filters = c('collection:"VIO"', "finna.include_hidden_parts:1"),
+    year_ranges = list(
+        c(0, 1699), 
+        c(1700, 1799), 
+        c(1800, 1899), 
+        c(1900, 1929), 
+        c(1930, 1949), 
+        c(1950, 1979), 
+        c(1980, 1999), 
+        c(2000, 2009), 
+        c(2010, 2019), 
+        c(2020, 2025) # Fixed this range
+    ),
+    include_na = TRUE,                   
+    limit_per_query = 100000,              
+    total_limit = Inf,                
+    delay_after_query = 3                
+)
+```
+
 
 ---
 
