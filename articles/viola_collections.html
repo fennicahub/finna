@@ -89,7 +89,7 @@ and handles records without date information.</p>
 year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
-<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co"># Fetch records</span></span>
 <span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fetch_viola_records.html">fetch_viola_records</a></span><span class="op">(</span></span>
 <span>  base_query <span class="op">=</span> <span class="st">"*"</span>,</span>
@@ -103,7 +103,7 @@ year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <span></span>
 <span><span class="co"># View the number of records fetched</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 3495</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3494</span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
@@ -131,7 +131,7 @@ field:</p>
 <span></span>
 <span><span class="co"># View undated records</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">undated_records</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,688 × 10</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,687 × 10</span></span></span>
 <span><span class="co">##    id             Title    Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fikka.5207343  [Gradua… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    fin      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -144,7 +144,7 @@ field:</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fikka.4997560  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    eng      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fikka.4994228  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> fikka.4994269  [Demo]   <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 2,678 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 2,677 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 <p>To fetch the whole data using batches of years we can use the
 <code><a href="../reference/fetch_viola_records.html">fetch_viola_records()</a></code> function as which provides all the
@@ -171,9 +171,50 @@ hidden parts</p>
 <span><span class="co">## <span style="color: #BCBCBC;">4</span> fikk… [Zac… <span style="color: #BB0000;">NA</span>     1676  swe      Nuotti  Collian… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">5</span> fikk… [Gra… <span style="color: #BB0000;">NA</span>     1616  fin      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>          </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">6</span> fikk… [Kor… <span style="color: #BB0000;">NA</span>     1679  lat      Nuotti  arkisto… Kansal… <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="fetching-full-viola-data">Fetching full Viola data<a class="anchor" aria-label="anchor" href="#fetching-full-viola-data"></a>
+</h2>
+<p>In order to fetch the full Viola data we need to follow the following
+method as there is a limitation to the maximum allowed API request.</p>
+<ol style="list-style-type: decimal">
+<li>We need to divide the whole data into ranges of dates based on their
+year.</li>
+<li>We need to make sure each range of years should return less than the
+maximum limit which is 100,000.</li>
+<li>Since there are hidden collections we need to add in the base
+filters `“finna.include_hidden_parts:1”``</li>
+<li>Then we can follow the same pattern of request as follows.</li>
+</ol>
+<p><strong>Note</strong> The more recent years have huge collections so
+it is recommended to use 1-2 year gap like,
+<code>c(2023,2024)</code>.</p>
+<p>year_ranges = list(c(0,1699),c(1700,1799),c(1800,1899),),</p>
+<p>Here is the example code for the whole data.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/fetch_viola_records.html">fetch_viola_records</a></span><span class="op">(</span></span>
+<span>    base_query <span class="op">=</span> <span class="st">"*"</span>,</span>
+<span>    base_filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'collection:"VIO"'</span>, <span class="st">"finna.include_hidden_parts:1"</span><span class="op">)</span>,</span>
+<span>    year_ranges <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1699</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1700</span>, <span class="fl">1799</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1800</span>, <span class="fl">1899</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1900</span>, <span class="fl">1929</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1930</span>, <span class="fl">1949</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1950</span>, <span class="fl">1979</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1980</span>, <span class="fl">1999</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2000</span>, <span class="fl">2009</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2010</span>, <span class="fl">2019</span><span class="op">)</span>, </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2020</span>, <span class="fl">2025</span><span class="op">)</span> <span class="co"># Fixed this range</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    include_na <span class="op">=</span> <span class="cn">TRUE</span>,                   </span>
+<span>    limit_per_query <span class="op">=</span> <span class="fl">100000</span>,              </span>
+<span>    total_limit <span class="op">=</span> <span class="cn">Inf</span>,                </span>
+<span>    delay_after_query <span class="op">=</span> <span class="fl">3</span>                </span>
+<span><span class="op">)</span></span></code></pre></div>
 <hr>
-</div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="data-visualization">Data Visualization<a class="anchor" aria-label="anchor" href="#data-visualization"></a>
@@ -183,7 +224,7 @@ and plotting functions.</p>
 <div class="section level4">
 <h4 id="author-distribution">Author Distribution<a class="anchor" aria-label="anchor" href="#author-distribution"></a>
 </h4>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fennicahub.github.io/finna/" class="external-link">finna</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
@@ -192,7 +233,7 @@ and plotting functions.</p>
 <span><span class="fu"><a href="../reference/top_plot.html">top_plot</a></span><span class="op">(</span><span class="va">refined_data</span><span class="op">$</span><span class="va">Author</span>, field <span class="op">=</span> <span class="st">"Author"</span>, ntop <span class="op">=</span> <span class="fl">10</span>, show.percentage <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"Author"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Custom X-axis label</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Percentage"</span><span class="op">)</span>  <span class="co"># Custom Y-axis label</span></span></code></pre></div>
-<p><img src="viola_collections_files/figure-html/unnamed-chunk-4-1.png" alt="viola author distribution" width="700"></p>
+<p><img src="viola_collections_files/figure-html/unnamed-chunk-5-1.png" alt="viola author distribution" width="700"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
