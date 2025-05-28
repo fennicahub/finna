@@ -118,10 +118,19 @@ print(record)
 
 ### search image
 
+For specific collection of images from specific organisation we can search metadata for example: We take an image from organisation: "Military Museum" and choose search key to be "Laatokka". (https://www.finna.fi/Search/Results?lookfor=laatokka&type=AllFields&filter%5B%5D=%7Ebuilding%3A%220%2FSA-kuva%2F%22&limit=20&sort=relevance)
+
+```{r message = FALSE, warning = FALSE}
+record <- search_finna("laatokka",filters = c('~building:"0/SA-kuva/"'))
+print(record)
+```
+
+
 ```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c('~media_type_str_mv:"0/image/"'))
 print(record)
 ```
+
 
 ### Audio book
 
