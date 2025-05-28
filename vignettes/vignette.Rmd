@@ -125,7 +125,7 @@ record <- search_finna("laatokka",filters = c('~building:"0/SA-kuva/"'))
 print(record)
 ```
 
-
+Similarly, we can do the same for specific search keysas follows:
 ```{r message = FALSE, warning = FALSE}
 record <- search_finna("sibelius", filters = c('~media_type_str_mv:"0/image/"'))
 print(record)
