@@ -6,7 +6,7 @@ library(forcats)
 library(patchwork)
 
 
-nineteen_cen <- readRDS("~/finna/nineteen_cen.rds")
+#nineteen_cen <- readRDS("~/finna/nineteen_cen.rds")
 # STEP 1: Collapse to top 5 languages
 top_langs <- nineteen_cen %>%
   count(Language, sort = TRUE) %>%
@@ -94,7 +94,7 @@ p6 <- nineteen_cen_clean %>%
 # STEP 11: Combine all six plots (p1–p6) in 3x2 grid
 combined_plot_6 <- (p1 + p2) / (p3 + p4) / (p5 + p6) +
   plot_layout(guides = "collect") +
-  plot_annotation(title = "Fennica Metadata Analysis: Language, Format, and Publication Trends (1809–1918)") &
+  plot_annotation(title = "Fennica Metadata Analysis: Language, Format, and Publication Trends (1809–1917)") &
   theme(
     legend.position = "bottom",
     legend.text = element_text(size = 8),
