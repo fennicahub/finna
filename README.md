@@ -66,6 +66,9 @@ head(record)
 | Solace                                                                                 | N/A                        | 2024 | No language (zxx) | Äänite (audio)  | N/A            | Anders Chydenius | N/A      |
 
 
+## Case studies
+
+The analysis codes in case studies 1-2 are included in the inst/extras or [here](https://github.com/fennicahub/finna/tree/main/inst/extras)
 
 ## Contribute
 
