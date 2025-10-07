@@ -103,7 +103,7 @@ year ranges: 0–1699, 1700–1799, and 1800–1899.</p>
 <span></span>
 <span><span class="co"># View the number of records fetched</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 3514</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 3441</span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
@@ -131,7 +131,7 @@ field:</p>
 <span></span>
 <span><span class="co"># View undated records</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">undated_records</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,694 × 10</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 2,612 × 10</span></span></span>
 <span><span class="co">##    id             Title    Author Year  Language Formats Subjects Library Series</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fikka.2834441  Graduale <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    lat      Kirja,… arkisto… Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
@@ -144,7 +144,7 @@ field:</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fikka.4941590  Demo     <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fikka.4941603  Boogie … <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> fikka.4941825  Close-up <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>    zxx      Äänite… <span style="color: #BB0000;">NA</span>       Kansal… <span style="color: #BB0000;">NA</span>    </span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 2,684 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 2,602 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span></span></code></pre>
 <p>To fetch the whole data using batches of years we can use the
 <code><a href="../reference/fetch_viola_records.html">fetch_viola_records()</a></code> function as which provides all the

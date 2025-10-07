@@ -783,47 +783,49 @@ extra many columns including the profession related information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">authors_df</span> <span class="op">&lt;-</span> <span class="fu">finto</span><span class="fu">::</span><span class="fu"><a href="https://fennicahub.github.io/finto/reference/get_kanto.html" class="external-link">get_kanto</a></span><span class="op">(</span><span class="va">fennica_subset</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">authors_df</span>, caption <span class="op">=</span> <span class="st">"Authors Data Frame from kanto"</span><span class="op">)</span></span></code></pre></div>
-<table style="width:100%;" class="table">
+<table class="table">
 <caption>Authors Data Frame from kanto</caption>
 <colgroup>
 <col width="0%">
-<col width="3%">
-<col width="4%">
-<col width="2%">
 <col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="8%">
+<col width="8%">
 <col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
+<col width="1%">
+<col width="3%">
 <col width="0%">
 <col width="0%">
 <col width="1%">
-<col width="0%">
-<col width="14%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="3%">
-<col width="2%">
-<col width="0%">
 <col width="1%">
-<col width="2%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
 <col width="6%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="5%">
-<col width="3%">
 <col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="2%">
+<col width="2%">
+<col width="4%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="6%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="8%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="5%">
+<col width="10%">
+<col width="1%">
+<col width="0%">
 <col width="1%">
 </colgroup>
 <thead><tr class="header">
@@ -832,19 +834,21 @@ extra many columns including the profession related information.</p>
 <th align="left">type</th>
 <th align="left">prefLabel</th>
 <th align="left">altLabel</th>
+<th align="left">variantName</th>
 <th align="left">hiddenLabel</th>
-<th align="left">broader</th>
-<th align="left">narrower</th>
-<th align="left">related</th>
-<th align="left">definition</th>
-<th align="left">scopeNote</th>
-<th align="left">example</th>
-<th align="left">historyNote</th>
-<th align="left">editorialNote</th>
-<th align="left">changeNote</th>
-<th align="left">profession</th>
+<th align="left">authorizedAccessPoint</th>
+<th align="left">note</th>
 <th align="left">birthDate</th>
 <th align="left">deathDate</th>
+<th align="left">birthPlace</th>
+<th align="left">deathPlace</th>
+<th align="left">profession</th>
+<th align="left">language</th>
+<th align="left">title</th>
+<th align="left">country</th>
+<th align="left">relatedPerson</th>
+<th align="left">isni</th>
+<th align="left">source</th>
 <th align="left">exactMatch</th>
 <th align="left">closeMatch</th>
 <th align="left">inScheme</th>
@@ -869,394 +873,15 @@ extra many columns including the profession related information.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">000069536</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
-</td>
-<td align="left">1854</td>
-<td align="left">1922</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2025-03-03T10:09:23</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
-<td align="left">poet</td>
-<td align="left">runoilija</td>
-<td align="left">diktare</td>
-<td align="left">poets, skalder, lyriker, runoilijat, poeter,
-lyyrikot</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
-<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
-RDA-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000069536</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
-</td>
-<td align="left">1854</td>
-<td align="left">1922</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2025-03-03T10:09:23</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
-<td align="left">priest</td>
-<td align="left">pappi</td>
-<td align="left">präst</td>
-<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
-priests, minister</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
-<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
-RDA-term</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000069536</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
-</td>
-<td align="left">1854</td>
-<td align="left">1922</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2025-03-03T10:09:23</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a></td>
-<td align="left">member of parliament</td>
-<td align="left">kansanedustaja</td>
-<td align="left">riksdagsledamot</td>
-<td align="left">riksdagsmän, riksdagsledamöter, members of parliament,
-kansanedustajat, riksdagskvinnor</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p1520" class="external-link uri">http://www.yso.fi/onto/yso/p1520</a></td>
-<td align="left">ALLFO-term, Nationell RDA-term, YSO-termi, Kansallinen
-RDA-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000101747</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Väinö, 1879-1958</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
-</td>
-<td align="left">1879</td>
-<td align="left">1958</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a></td>
-<td align="left">nonfiction writer</td>
-<td align="left">tietokirjailija</td>
-<td align="left">fackboksförfattare</td>
-<td align="left">tietokirjailijat, nonfiction writers, non-fiction
-writers</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a></td>
-<td align="left">Nationell RDA-term, Kansallinen RDA-termi, ALLFO-term,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000101747</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Väinö, 1879-1958</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
-</td>
-<td align="left">1879</td>
-<td align="left">1958</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a></td>
-<td align="left">NA</td>
-<td align="left">opettaja</td>
-<td align="left">lärare</td>
-<td align="left">opettaja (ammatti), lärare (yrke)</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p1117" class="external-link uri">http://www.yso.fi/onto/yso/p1117</a></td>
-<td align="left">YSO-termi, Nationell RDA-term, ALLFO-term, Kansallinen
-RDA-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000101747</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Väinö, 1879-1958</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
-</td>
-<td align="left">1879</td>
-<td align="left">1958</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
-<td align="left">poet</td>
-<td align="left">runoilija</td>
-<td align="left">diktare</td>
-<td align="left">poets, skalder, lyriker, runoilijat, poeter,
-lyyrikot</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
-<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
-RDA-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000101747</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Väinö, 1879-1958</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
-</td>
-<td align="left">1879</td>
-<td align="left">1958</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a></td>
-<td align="left">bishop</td>
-<td align="left">piispa</td>
-<td align="left">biskop</td>
-<td align="left">bishops, biskopar, piispat</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2901" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2901</a></td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p5769" class="external-link uri">http://www.yso.fi/onto/yso/p5769</a></td>
-<td align="left">Kansallinen RDA-termi, Nationell RDA-term, ALLFO-term,
-YSO-termi</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
-</tr>
-<tr class="even">
-<td align="left">000101747</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Malmivaara, Väinö, 1879-1958</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
-</td>
-<td align="left">1879</td>
-<td align="left">1958</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1994-11-13</td>
-<td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a></td>
-<td align="left">priest</td>
-<td align="left">pappi</td>
-<td align="left">präst</td>
-<td align="left">papit, pastors, pastorit, präster, clergymen, pastorer,
-priests, minister</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a></td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">2018-11-01</td>
-<td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a></td>
-<td align="left">Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
-RDA-term</td>
-<td align="left">RDF/XML, TURTLE, JSON-LD</td>
-<td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
-</tr>
-<tr class="odd">
 <td align="left">000051751</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000051751" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000051751</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
 <td align="left">Malot, Hector</td>
 <td align="left">Malot, Hector Henri</td>
+<td align="left">Malot, Hector Henri</td>
+<td align="left">NA</td>
+<td align="left">Malot, Hector</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1267,8 +892,8 @@ RDA-term</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Asteri ID: 000051751, <a href="http://isni.org/isni/0000000081272091" class="external-link uri">http://isni.org/isni/0000000081272091</a>
+</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1294,12 +919,235 @@ RDA-term</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
+<td align="left">000069536</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000069536" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000069536</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">Malmiwaara, Wilhelmi, 1854-1922; Malmberg, Vilh.,
+1854-1922; Malmivaara, Wilh., 1854-1922; Malmivaara, Vilmos, 1854-1922;
+Malmivaara, Vilhelmi, 1854-1922; Malmiwaara, Vilhelmi, 1854-1922;
+Malmberg, Wilh., 1854-1922; Malmberg, Wilhelm, 1854-1922</td>
+<td align="left">Malmiwaara, Vilhelmi, 1854-1922; Malmiwaara, Wilhelmi,
+1854-1922; Malmberg, Vilh., 1854-1922; Malmivaara, Vilhelmi, 1854-1922;
+Malmberg, Wilh., 1854-1922; Malmberg, Wilhelm, 1854-1922; Malmivaara,
+Wilh., 1854-1922; Malmivaara, Vilmos, 1854-1922</td>
+<td align="left">NA</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">Nimi vuoteen 1900: Wilhelm Malmberg, Täydellinen nimi:
+Wilhelmi Malmivaara, Vuodesta 1900 Malmivaara</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p94257" class="external-link uri">http://www.yso.fi/onto/yso/p94257</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p94257" class="external-link uri">http://www.yso.fi/onto/yso/p94257</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left"><a href="http://lexvo.org/id/iso639-3/fin" class="external-link uri">http://lexvo.org/id/iso639-3/fin</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000466883328" class="external-link uri">http://isni.org/isni/0000000466883328</a>, Asteri ID:
+000069536</td>
+<td align="left">Kansallisbiografia, katsottu 25.9.2014,
+<a href="https://fi.wikipedia.org/wiki/Wilhelmi_Malmivaara" class="external-link">Wikipedia</a>,
+katsottu 3.5.2019</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1994-11-13</td>
+<td align="left">2025-03-03T10:09:23</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">poet, priest, member of parliament</td>
+<td align="left">runoilija, pappi, kansanedustaja</td>
+<td align="left">diktare, präst, riksdagsledamot</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter, lyyrikot,
+papit, pastors, pastorit, präster, clergymen, pastorer, priests,
+minister, riksdagsmän, riksdagsledamöter, members of parliament,
+kansanedustajat, riksdagskvinnor</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a>
+</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left">
+<a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a>, <a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a>, <a href="http://www.yso.fi/onto/yso/p1520" class="external-link uri">http://www.yso.fi/onto/yso/p1520</a>
+</td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi, Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term, ALLFO-term, Nationell RDA-term, YSO-termi, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">poet, priest, member of parliament</td>
+</tr>
+<tr class="odd">
+<td align="left">000077783</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000077783" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000077783</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Skinnari, Pekka</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Skinnari, Pekka</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000484469606" class="external-link uri">http://isni.org/isni/0000000484469606</a>, Asteri ID:
+000077783</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1993-05-07</td>
+<td align="left">2020-11-08T15:48:32</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">000084960</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084960" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084960</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Louhivuori, O. W., 1884-1953</td>
+<td align="left">O. W. L., 1884-1953; Louhivuori, O. V., 1884-1953;
+Louhivuori, Oskari Wilho, 1884-1953</td>
+<td align="left">Louhivuori, O. V., 1884-1953; O. W. L., 1884-1953;
+Louhivuori, Oskari Wilho, 1884-1953</td>
+<td align="left">NA</td>
+<td align="left">Louhivuori, O. W., 1884-1953</td>
+<td align="left">Todellinen nimi: O. (Oskari) W. (Wilho) Louhivuori</td>
+<td align="left">1884</td>
+<td align="left">1953</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf:000089432" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000089432</a>, <a href="http://urn.fi/URN:NBN:fi:au:finaf:000086541" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000086541</a>
+</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000396359255" class="external-link uri">http://isni.org/isni/0000000396359255</a>, Asteri ID:
+000084960</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-000907" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-000907</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1995-10-09</td>
+<td align="left">2025-02-19T18:34:17</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
+<td align="left">economist</td>
+<td align="left">taloustieteilijä</td>
+<td align="left">nationalekonom</td>
+<td align="left">nationalekonomer, economists, ekonomister, ekonomistit,
+taloustieteilijät</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">2018-11-01</td>
+<td align="left">2024-08-27</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p20003" class="external-link uri">http://www.yso.fi/onto/yso/p20003</a></td>
+<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi</td>
+<td align="left">RDF/XML, TURTLE, JSON-LD</td>
+<td align="left">NA</td>
+<td align="left">economist</td>
+</tr>
+<tr class="odd">
+<td align="left">000085939</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000085939" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000085939</a></td>
+<td align="left">
+<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
+skos:Concept</td>
+<td align="left">Manner, Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
+<td align="left">NA</td>
+<td align="left">Manner, Viktor</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Asteri ID: 000085939</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
+<td align="left">1999-02-11</td>
+<td align="left">2020-11-08T16:21:48</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
 <td align="left">000090724</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000090724" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000090724</a></td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
 <td align="left">Monisti</td>
 <td align="left">Rautell, Emil Frithiof</td>
+<td align="left">Rautell, Emil Frithiof</td>
+<td align="left">NA</td>
+<td align="left">Monisti</td>
+<td align="left">Todellinen nimi: Emil Frithiof Rautell</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1309,9 +1157,9 @@ RDA-term</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000484580101" class="external-link uri">http://isni.org/isni/0000000484580101</a>, Asteri ID:
+000090724</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1337,138 +1185,73 @@ RDA-term</td>
 <td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">000084960</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000084960" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000084960</a></td>
+<td align="left">000101747</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000101747" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000101747</a></td>
+<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
+</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">Malmberg, Väinö Rafael, 1879-1958; Malmivaara, Väinö
+Rafael, 1879-1958; Malmiwaara, Väinö, 1879-1958</td>
+<td align="left">Malmiwaara, Väinö, 1879-1958; Malmberg, Väinö Rafael,
+1879-1958; Malmivaara, Väinö Rafael, 1879-1958</td>
+<td align="left">NA</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">Nimi vuoteen 1906: Väinö Rafael Malmberg, Täydellinen
+nimi: Väinö Rafael Malmivaara</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p105744" class="external-link uri">http://www.yso.fi/onto/yso/p105744</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p105744" class="external-link uri">http://www.yso.fi/onto/yso/p105744</a></td>
 <td align="left">
-<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
-skos:Concept</td>
-<td align="left">Louhivuori, O. W., 1884-1953</td>
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left"><a href="http://lexvo.org/id/iso639-3/fin" class="external-link uri">http://lexvo.org/id/iso639-3/fin</a></td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">Asteri ID: 000101747, <a href="http://isni.org/isni/0000000013604445" class="external-link uri">http://isni.org/isni/0000000013604445</a>
+</td>
+<td align="left">
+<a href="https://fi.wikipedia.org/wiki/V%C3%A4in%C3%B6_Malmivaara" class="external-link">Wikipedia</a>,
+katsottu 3.5.2019, Kansallisbiografia, katsottu 25.9.2014</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
-<td align="left">1884</td>
-<td align="left">1953</td>
-<td align="left">NA</td>
-<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-000907" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-000907</a></td>
+<td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1995-10-09</td>
-<td align="left">2025-02-19T18:34:17</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
-<td align="left">economist</td>
-<td align="left">taloustieteilijä</td>
-<td align="left">nationalekonom</td>
-<td align="left">nationalekonomer, economists, ekonomister, ekonomistit,
-taloustieteilijät</td>
+<td align="left">1994-11-13</td>
+<td align="left">2023-04-20T12:29:27</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">nonfiction writer, poet, bishop, priest</td>
+<td align="left">tietokirjailija, opettaja, runoilija, piispa,
+pappi</td>
+<td align="left">fackboksförfattare, lärare, diktare, biskop, präst</td>
+<td align="left">tietokirjailijat, nonfiction writers, non-fiction
+writers, opettaja (ammatti), lärare (yrke), poets, skalder, lyriker,
+runoilijat, poeter, lyyrikot, bishops, biskopar, piispat, papit,
+pastors, pastorit, präster, clergymen, pastorer, priests, minister</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a>
+</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2901" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2901</a></td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p20003" class="external-link uri">http://www.yso.fi/onto/yso/p20003</a></td>
-<td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
-RDA-termi</td>
+<td align="left">
+<a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a>, <a href="http://www.yso.fi/onto/yso/p1117" class="external-link uri">http://www.yso.fi/onto/yso/p1117</a>, <a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a>, <a href="http://www.yso.fi/onto/yso/p5769" class="external-link uri">http://www.yso.fi/onto/yso/p5769</a>, <a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a>
+</td>
+<td align="left">Nationell RDA-term, Kansallinen RDA-termi, ALLFO-term,
+YSO-termi, YSO-termi, Nationell RDA-term, ALLFO-term, Kansallinen
+RDA-termi, ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi, Kansallinen RDA-termi, Nationell RDA-term, ALLFO-term,
+YSO-termi, Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">000077783</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000077783" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000077783</a></td>
-<td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
-</td>
-<td align="left">Skinnari, Pekka</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1993-05-07</td>
-<td align="left">2020-11-08T15:48:32</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">000085939</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:finaf:000085939" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000085939</a></td>
-<td align="left">
-<a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
-skos:Concept</td>
-<td align="left">Manner, Viktor</td>
-<td align="left">Manner, Antero Viktor</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
-<td align="left">1999-02-11</td>
-<td align="left">2020-11-08T16:21:48</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">nonfiction writer, NA, poet, bishop, priest</td>
 </tr>
 </tbody>
 </table>
@@ -1504,73 +1287,75 @@ as <code>authorID</code>.</p></li>
 <span></span>
 <span><span class="co"># Display the merged result</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">merged_data</span>, caption <span class="op">=</span> <span class="st">"Merged Fennica + KANTO Data"</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <caption>Merged Fennica + KANTO Data</caption>
 <colgroup>
+<col width="0%">
+<col width="0%">
+<col width="2%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="2%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="10%">
+<col width="6%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="0%">
+<col width="5%">
+<col width="5%">
+<col width="0%">
+<col width="0%">
+<col width="2%">
+<col width="0%">
+<col width="0%">
 <col width="0%">
 <col width="0%">
 <col width="4%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="2%">
+<col width="1%">
+<col width="1%">
 <col width="3%">
 <col width="0%">
 <col width="0%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
 <col width="0%">
 <col width="0%">
-<col width="1%">
 <col width="0%">
-<col width="2%">
-<col width="0%">
-<col width="0%">
-<col width="1%">
-<col width="17%">
-<col width="10%">
-<col width="0%">
-<col width="0%">
+<col width="4%">
 <col width="0%">
 <col width="1%">
 <col width="1%">
+<col width="5%">
+<col width="0%">
 <col width="1%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
 <col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="6%">
-<col width="0%">
-<col width="0%">
-<col width="0%">
-<col width="1%">
-<col width="1%">
-<col width="0%">
-<col width="0%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="2%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="2%">
+<col width="3%">
+<col width="7%">
 <col width="1%">
 <col width="0%">
 <col width="0%">
@@ -1582,10 +1367,10 @@ as <code>authorID</code>.</p></li>
 <th align="left">author_name</th>
 <th align="left">author_date</th>
 <th align="left">author_ID</th>
-<th align="left">language</th>
+<th align="left">language.x</th>
 <th align="left">language_original</th>
 <th align="left">title_uniform</th>
-<th align="left">title</th>
+<th align="left">title.x</th>
 <th align="left">title_remainder</th>
 <th align="left">publication_place</th>
 <th align="left">publisher</th>
@@ -1609,19 +1394,21 @@ as <code>authorID</code>.</p></li>
 <th align="left">type</th>
 <th align="left">prefLabel</th>
 <th align="left">altLabel</th>
+<th align="left">variantName</th>
 <th align="left">hiddenLabel</th>
-<th align="left">broader</th>
-<th align="left">narrower</th>
-<th align="left">related</th>
-<th align="left">definition</th>
-<th align="left">scopeNote</th>
-<th align="left">example</th>
-<th align="left">historyNote</th>
-<th align="left">editorialNote</th>
-<th align="left">changeNote</th>
-<th align="left">profession</th>
+<th align="left">authorizedAccessPoint</th>
+<th align="left">note</th>
 <th align="left">birthDate</th>
 <th align="left">deathDate</th>
+<th align="left">birthPlace</th>
+<th align="left">deathPlace</th>
+<th align="left">profession</th>
+<th align="left">language.y</th>
+<th align="left">title.y</th>
+<th align="left">country</th>
+<th align="left">relatedPerson</th>
+<th align="left">isni</th>
+<th align="left">source</th>
 <th align="left">exactMatch</th>
 <th align="left">closeMatch</th>
 <th align="left">inScheme</th>
@@ -1675,6 +1462,8 @@ as <code>authorID</code>.</p></li>
 maastokartta.|Maastotäydennys 1996.</td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1784,6 +1573,8 @@ lappmark /</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864209</td>
@@ -1814,6 +1605,8 @@ lappmark /</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1922,6 +1715,8 @@ lappmark /</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864211</td>
@@ -1957,47 +1752,70 @@ lappmark /</td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
 <td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">Malmiwaara, Wilhelmi, 1854-1922; Malmberg, Vilh.,
+1854-1922; Malmivaara, Wilh., 1854-1922; Malmivaara, Vilmos, 1854-1922;
+Malmivaara, Vilhelmi, 1854-1922; Malmiwaara, Vilhelmi, 1854-1922;
+Malmberg, Wilh., 1854-1922; Malmberg, Wilhelm, 1854-1922</td>
+<td align="left">Malmiwaara, Vilhelmi, 1854-1922; Malmiwaara, Wilhelmi,
+1854-1922; Malmberg, Vilh., 1854-1922; Malmivaara, Vilhelmi, 1854-1922;
+Malmberg, Wilh., 1854-1922; Malmberg, Wilhelm, 1854-1922; Malmivaara,
+Wilh., 1854-1922; Malmivaara, Vilmos, 1854-1922</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Malmivaara, Wilhelmi, 1854-1922</td>
+<td align="left">Nimi vuoteen 1900: Wilhelm Malmberg, Täydellinen nimi:
+Wilhelmi Malmivaara, Vuodesta 1900 Malmivaara</td>
+<td align="left">1854</td>
+<td align="left">1922</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p94257" class="external-link uri">http://www.yso.fi/onto/yso/p94257</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p94257" class="external-link uri">http://www.yso.fi/onto/yso/p94257</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left"><a href="http://lexvo.org/id/iso639-3/fin" class="external-link uri">http://lexvo.org/id/iso639-3/fin</a></td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">
-<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
-</td>
-<td align="left">1854</td>
-<td align="left">1922</td>
+<a href="http://isni.org/isni/0000000466883328" class="external-link uri">http://isni.org/isni/0000000466883328</a>, Asteri ID:
+000069536</td>
+<td align="left">Kansallisbiografia, katsottu 25.9.2014,
+<a href="https://fi.wikipedia.org/wiki/Wilhelmi_Malmivaara" class="external-link">Wikipedia</a>,
+katsottu 3.5.2019</td>
 <td align="left">NA</td>
 <td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-006242" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-006242</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1994-11-13</td>
 <td align="left">2025-03-03T10:09:23</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a></td>
-<td align="left">poet</td>
-<td align="left">runoilija</td>
-<td align="left">diktare</td>
-<td align="left">poets, skalder, lyriker, runoilijat, poeter,
-lyyrikot</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2518" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2518</a>
+</td>
+<td align="left">poet, priest, member of parliament</td>
+<td align="left">runoilija, pappi, kansanedustaja</td>
+<td align="left">diktare, präst, riksdagsledamot</td>
+<td align="left">poets, skalder, lyriker, runoilijat, poeter, lyyrikot,
+papit, pastors, pastorit, präster, clergymen, pastorer, priests,
+minister, riksdagsmän, riksdagsledamöter, members of parliament,
+kansanedustajat, riksdagskvinnor</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a>
+</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a></td>
+<td align="left">
+<a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a>, <a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a>, <a href="http://www.yso.fi/onto/yso/p1520" class="external-link uri">http://www.yso.fi/onto/yso/p1520</a>
+</td>
 <td align="left">ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi, Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term, ALLFO-term, Nationell RDA-term, YSO-termi, Kansallinen
 RDA-termi</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA, NA, NA</td>
+<td align="left">poet, priest, member of parliament</td>
 </tr>
 <tr class="even">
 <td align="left">000864212</td>
@@ -2028,6 +1846,8 @@ RDA-termi</td>
 <td align="left">Lisäpainokset: [2. p.] 1998.</td>
 <td align="left">Solomon, Mirja E.,</td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2137,6 +1957,8 @@ religionsuppfattning.</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">000864215</td>
@@ -2172,47 +1994,68 @@ religionsuppfattning.</td>
 <td align="left">skos:Concept, <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>
 </td>
 <td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">Malmberg, Väinö Rafael, 1879-1958; Malmivaara, Väinö
+Rafael, 1879-1958; Malmiwaara, Väinö, 1879-1958</td>
+<td align="left">Malmiwaara, Väinö, 1879-1958; Malmberg, Väinö Rafael,
+1879-1958; Malmivaara, Väinö Rafael, 1879-1958</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Malmivaara, Väinö, 1879-1958</td>
+<td align="left">Nimi vuoteen 1906: Väinö Rafael Malmberg, Täydellinen
+nimi: Väinö Rafael Malmivaara</td>
+<td align="left">1879</td>
+<td align="left">1958</td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p105744" class="external-link uri">http://www.yso.fi/onto/yso/p105744</a></td>
+<td align="left"><a href="http://www.yso.fi/onto/yso/p105744" class="external-link uri">http://www.yso.fi/onto/yso/p105744</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
 </td>
-<td align="left">1879</td>
-<td align="left">1958</td>
+<td align="left"><a href="http://lexvo.org/id/iso639-3/fin" class="external-link uri">http://lexvo.org/id/iso639-3/fin</a></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Asteri ID: 000101747, <a href="http://isni.org/isni/0000000013604445" class="external-link uri">http://isni.org/isni/0000000013604445</a>
+</td>
+<td align="left">
+<a href="https://fi.wikipedia.org/wiki/V%C3%A4in%C3%B6_Malmivaara" class="external-link">Wikipedia</a>,
+katsottu 3.5.2019, Kansallisbiografia, katsottu 25.9.2014</td>
 <td align="left">NA</td>
 <td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-003057" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-003057</a></td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:finaf" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf</a>:</td>
 <td align="left">1994-11-13</td>
 <td align="left">2023-04-20T12:29:27</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a></td>
-<td align="left">nonfiction writer</td>
-<td align="left">tietokirjailija</td>
-<td align="left">fackboksförfattare</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m2770" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2770</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2413" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2413</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m3285" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3285</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2638" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2638</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2479" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2479</a>
+</td>
+<td align="left">nonfiction writer, poet, bishop, priest</td>
+<td align="left">tietokirjailija, opettaja, runoilija, piispa,
+pappi</td>
+<td align="left">fackboksförfattare, lärare, diktare, biskop, präst</td>
 <td align="left">tietokirjailijat, nonfiction writers, non-fiction
-writers</td>
+writers, opettaja (ammatti), lärare (yrke), poets, skalder, lyriker,
+runoilijat, poeter, lyyrikot, bishops, biskopar, piispat, papit,
+pastors, pastorit, präster, clergymen, pastorer, priests, minister</td>
 <td align="left">
 <a href="http://urn.fi/URN:NBN:fi:au:mts" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts</a>:</td>
-<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a></td>
-<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:mts:m3004" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m3004</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m2671" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2671</a>
+</td>
+<td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2901" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2901</a></td>
 <td align="left">NA</td>
 <td align="left">2018-11-01</td>
 <td align="left">2024-08-27</td>
-<td align="left"><a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a></td>
+<td align="left">
+<a href="http://www.yso.fi/onto/yso/p5081" class="external-link uri">http://www.yso.fi/onto/yso/p5081</a>, <a href="http://www.yso.fi/onto/yso/p1117" class="external-link uri">http://www.yso.fi/onto/yso/p1117</a>, <a href="http://www.yso.fi/onto/yso/p3490" class="external-link uri">http://www.yso.fi/onto/yso/p3490</a>, <a href="http://www.yso.fi/onto/yso/p5769" class="external-link uri">http://www.yso.fi/onto/yso/p5769</a>, <a href="http://www.yso.fi/onto/yso/p5468" class="external-link uri">http://www.yso.fi/onto/yso/p5468</a>
+</td>
 <td align="left">Nationell RDA-term, Kansallinen RDA-termi, ALLFO-term,
-YSO-termi</td>
+YSO-termi, YSO-termi, Nationell RDA-term, ALLFO-term, Kansallinen
+RDA-termi, ALLFO-term, YSO-termi, Nationell RDA-term, Kansallinen
+RDA-termi, Kansallinen RDA-termi, Nationell RDA-term, ALLFO-term,
+YSO-termi, Kansallinen RDA-termi, ALLFO-term, YSO-termi, Nationell
+RDA-term</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA, NA, NA, NA, NA</td>
+<td align="left">nonfiction writer, NA, poet, bishop, priest</td>
 </tr>
 <tr class="odd">
 <td align="left">000864216</td>
@@ -2249,6 +2092,9 @@ YSO-termi</td>
 </td>
 <td align="left">Malot, Hector</td>
 <td align="left">Malot, Hector Henri</td>
+<td align="left">Malot, Hector Henri</td>
+<td align="left">NA</td>
+<td align="left">Malot, Hector</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2259,8 +2105,8 @@ YSO-termi</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Asteri ID: 000051751, <a href="http://isni.org/isni/0000000081272091" class="external-link uri">http://isni.org/isni/0000000081272091</a>
+</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2324,6 +2170,10 @@ kurjuutta ja vääryyttä!.</td>
 </td>
 <td align="left">Monisti</td>
 <td align="left">Rautell, Emil Frithiof</td>
+<td align="left">Rautell, Emil Frithiof</td>
+<td align="left">NA</td>
+<td align="left">Monisti</td>
+<td align="left">Todellinen nimi: Emil Frithiof Rautell</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2333,9 +2183,9 @@ kurjuutta ja vääryyttä!.</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000484580101" class="external-link uri">http://isni.org/isni/0000000484580101</a>, Asteri ID:
+000090724</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2390,6 +2240,8 @@ pöytäkirja.</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2499,6 +2351,8 @@ varandra? /</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864220</td>
@@ -2536,20 +2390,28 @@ varandra? /</td>
 <a href="http://rdaregistry.info/Elements/c/C10004" class="external-link uri">http://rdaregistry.info/Elements/c/C10004</a>,
 skos:Concept</td>
 <td align="left">Louhivuori, O. W., 1884-1953</td>
+<td align="left">O. W. L., 1884-1953; Louhivuori, O. V., 1884-1953;
+Louhivuori, Oskari Wilho, 1884-1953</td>
+<td align="left">Louhivuori, O. V., 1884-1953; O. W. L., 1884-1953;
+Louhivuori, Oskari Wilho, 1884-1953</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Louhivuori, O. W., 1884-1953</td>
+<td align="left">Todellinen nimi: O. (Oskari) W. (Wilho) Louhivuori</td>
+<td align="left">1884</td>
+<td align="left">1953</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left"><a href="http://urn.fi/URN:NBN:fi:au:mts:m2612" class="external-link uri">http://urn.fi/URN:NBN:fi:au:mts:m2612</a></td>
-<td align="left">1884</td>
-<td align="left">1953</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">
+<a href="http://urn.fi/URN:NBN:fi:au:finaf:000089432" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000089432</a>, <a href="http://urn.fi/URN:NBN:fi:au:finaf:000086541" class="external-link uri">http://urn.fi/URN:NBN:fi:au:finaf:000086541</a>
+</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000396359255" class="external-link uri">http://isni.org/isni/0000000396359255</a>, Asteri ID:
+000084960</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left"><a href="http://urn.fi/urn:nbn:fi:sks-kbg-000907" class="external-link uri">http://urn.fi/urn:nbn:fi:sks-kbg-000907</a></td>
 <td align="left">
@@ -2574,7 +2436,7 @@ taloustieteilijät</td>
 RDA-termi</td>
 <td align="left">RDF/XML, TURTLE, JSON-LD</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">economist</td>
 </tr>
 <tr class="even">
 <td align="left">000864221</td>
@@ -2614,6 +2476,7 @@ for Windows</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">Skinnari, Pekka</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2624,6 +2487,9 @@ for Windows</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">
+<a href="http://isni.org/isni/0000000484469606" class="external-link uri">http://isni.org/isni/0000000484469606</a>, Asteri ID:
+000077783</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2677,6 +2543,8 @@ for Windows</td>
 <td align="left">Översatt fr. engelskan</td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2785,6 +2653,8 @@ for Windows</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864224</td>
@@ -2823,6 +2693,9 @@ for Windows</td>
 skos:Concept</td>
 <td align="left">Manner, Viktor</td>
 <td align="left">Manner, Antero Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
+<td align="left">NA</td>
+<td align="left">Manner, Viktor</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2833,8 +2706,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Asteri ID: 000085939</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2928,6 +2800,8 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">000864226</td>
@@ -2967,6 +2841,9 @@ Health|Statistics|terveys|hygienia|hälsa|hygien</td>
 skos:Concept</td>
 <td align="left">Manner, Viktor</td>
 <td align="left">Manner, Antero Viktor</td>
+<td align="left">Manner, Antero Viktor</td>
+<td align="left">NA</td>
+<td align="left">Manner, Viktor</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -2977,8 +2854,7 @@ skos:Concept</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
+<td align="left">Asteri ID: 000085939</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -3032,6 +2908,8 @@ skos:Concept</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>

@@ -123,22 +123,22 @@ The function paginates through the results, fetching records until the specified
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">search_results</span> <span class="op">&lt;-</span> <span class="fu">search_finna</span><span class="op">(</span><span class="st">"sibelius"</span>, sort <span class="op">=</span> <span class="st">"main_date_str desc"</span>, limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44676</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 1.08 seconds.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44420</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 1.06 seconds.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id                Title Author Year  Language Formats Subjects Library Series</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 3amk.317967       Kerr… Helin… 2025  fin      Kirja,… matkail… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> eepos.3204223     Finl… Parne… 2025  eng      Kirja,… Suomi    Eepos-… Insig…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> uniarts_print.99… Pers… Merta… 2025  eng      Opinnä… Hammer,… Taidey… EST-j…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> eepos.3213610     Symp… Sibel… 2025  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> helmet.2607883    Jean… Griml… 2025  eng      Kirja,… Sibeliu… Helmet… <span style="color: #BB0000;">NA</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> uniarts_print.99… Chil… Cappo… 2025  eng      Opinnä… lapset … Taidey… Studi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> uniarts_print.99… Aika… Kasti… 2025  <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Taidey… Sibel…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> uniarts_print.99… Nord… Jõged… 2025  est      Äänite… <span style="color: #BB0000;">NA</span>       Taidey… Sibel…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> anders.1980562    Jean… Vahto… 2025  fin      Kirja,… <span style="color: #BB0000;">NA</span>       Anders… <span style="color: #BB0000;">NA</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> heili.a7d0fbcc-e… Tuom… Haapa… 2025  fin      Kirja,… Haapane… Heili-… Sibel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> anders.1971521    Hels… Muhon… 2025  fin      Kirja,… Pokko, … Anders… <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 3amk.317967       Kerr… Helin… 2025  fin      Kirja,… matkail… 3AMK-k… <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> eepos.3204223     Finl… Parne… 2025  eng      Kirja,… Suomi    Eepos-… Insig…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> uniarts_print.99… Pers… Merta… 2025  eng      Opinnä… Hammer,… Taidey… EST-j…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> eepos.3213610     Symp… Sibel… 2025  zxx      Äänite… <span style="color: #BB0000;">NA</span>       Eepos-… <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> helmet.2607883    Jean… Griml… 2025  eng      Kirja,… Sibeliu… Helmet… <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> uniarts_print.99… Chil… Cappo… 2025  eng      Opinnä… lapset … Taidey… Studi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> uniarts_print.99… Aika… Kasti… 2025  <span style="color: #BB0000;">NA</span>       Äänite… <span style="color: #BB0000;">NA</span>       Taidey… Sibel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> uniarts_print.99… Nord… Jõged… 2025  est      Äänite… <span style="color: #BB0000;">NA</span>       Taidey… Sibel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> anders.1980562    Jean… Vahto… 2025  fin      Kirja,… Sibeliu… Anders… <span style="color: #BB0000;">NA</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 90 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: last_indexed &lt;chr&gt;</span></span>
 </code></pre></div>
