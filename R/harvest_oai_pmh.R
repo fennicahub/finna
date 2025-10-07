@@ -111,6 +111,7 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
     }
 
     raw_content <- httr::content(response, as = "text", encoding = "UTF-8")
+    #print(raw_content)
     xml <- read_xml(raw_content)
     xml <- strip_namespaces(xml)
 
@@ -195,7 +196,20 @@ harvest_oai_pmh <- function(base_url, metadata_prefix, set = NULL,
 
   # Combine all records into a tibble
   if (length(all_records) > 0) {
-    df <- dplyr::bind_rows(lapply(all_records, function(x) as_tibble(x, .name_repair = "unique")))
+    if (metadata_prefix == "marc21") {
+      df <- dplyr::bind_rows(lapply(all_records, function(x) {
+        if (!is.null(x$raw_xml)) {
+          parsed <- parse_marc_fields(x$raw_xml)
+          if (!is.null(x$setSpec)) parsed$setSpec <- x$setSpec
+          return(tibble::as_tibble(parsed, .name_repair = "unique"))
+        } else {
+          return(NULL)
+        }
+      }))
+    } else {
+      df <- dplyr::bind_rows(lapply(all_records, function(x) tibble::as_tibble(x, .name_repair = "unique")))
+    }
+
   } else {
     df <- tibble::tibble()
   }
@@ -251,3 +265,40 @@ strip_namespaces <- function(doc) {
   return(doc)
 }
 
+
+
+#' @title Parse a MARC21 Record from Raw XML
+#' @description Converts MARC21 XML to a named list with field+subfield keys (e.g., "245a").
+#' @param xml_string A string of MARCXML for one record.
+#' @return A named list of parsed fields.
+parse_marc_fields <- function(xml_string) {
+  doc <- xml2::read_xml(xml_string)
+  xml2::xml_ns_strip(doc)
+
+  leader <- xml2::xml_text(xml2::xml_find_first(doc, ".//leader"))
+  ctrl_fields <- xml2::xml_find_all(doc, ".//controlfield")
+  ctrl_list <- stats::setNames(xml2::xml_text(ctrl_fields), xml2::xml_attr(ctrl_fields, "tag"))
+
+  data_fields <- xml2::xml_find_all(doc, ".//datafield")
+  data_list <- list()
+
+  for (df in data_fields) {
+    tag <- xml2::xml_attr(df, "tag")
+    subfields <- xml2::xml_find_all(df, ".//subfield")
+    for (sf in subfields) {
+      code <- xml2::xml_attr(sf, "code")
+      key <- paste0(tag, code)
+      val <- xml2::xml_text(sf)
+
+      # Collapsing multiple values into one string (with | separator)
+      if (!is.null(data_list[[key]])) {
+        data_list[[key]] <- paste(data_list[[key]], val, sep = " | ")
+      } else {
+        data_list[[key]] <- val
+      }
+    }
+  }
+
+  result <- c(list(leader = leader), ctrl_list, data_list)
+  return(result)
+}
