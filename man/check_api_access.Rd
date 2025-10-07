@@ -29,3 +29,6 @@ a logical value indicating the accessibility of the API.
   }
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

@@ -37,3 +37,6 @@ which fields to return, the language, and the pagination options.
 records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRUE, lng = "en-gb")
 print(records)
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

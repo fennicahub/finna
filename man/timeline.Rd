@@ -45,6 +45,8 @@ Timeline data for selected variable (possibly across various groups).
 See citation("bibliographica")
 }
 \author{
+Akewak Jeba  \email{akewak84@gmail.com}
+
 Leo Lahti \email{leo.lahti@iki.fi}
 }
 \keyword{utilities}

@@ -25,3 +25,6 @@ search_results <- search_finna("sibelius")
 save_for_offline(search_results, "sibelius_search_results")
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

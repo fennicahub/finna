@@ -9,6 +9,7 @@
 #' @param lng Language for results, defaults to "fi".
 #' @param prettyPrint Logical, whether to pretty-print JSON responses.
 #' @return A tibble containing the fetched data with relevant fields.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' \dontrun{
 #'   fetch_finna(query = "record_format:ead", limit = 0)

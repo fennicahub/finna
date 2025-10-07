@@ -38,3 +38,6 @@ each record with the top subject suggestion from the Annif API.
 enriched_records <- search_finna_with_annif("Sibelius", finna_limit = 5)
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

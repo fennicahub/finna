@@ -12,6 +12,7 @@
 #' @param limit_per_query An integer specifying the number of records to fetch per query. Defaults to 100000.
 #' @param total_limit An integer specifying the maximum number of records to fetch. Defaults to `Inf`.
 #' @return A tibble containing all fetched records.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' \dontrun{
 #'   results <- fetch_all_records(

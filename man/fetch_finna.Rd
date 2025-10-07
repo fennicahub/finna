@@ -35,3 +35,6 @@ This function retrieves data from the Finna API and formats it as a tidy tibble.
   fetch_finna() # Fetches data with no specific query
 }
 }
+\author{
+Akewak Jeba  \email{akewak84@gmail.com}
+}

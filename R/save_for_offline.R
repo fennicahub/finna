@@ -8,6 +8,7 @@
 #' @param file_name A string representing the name of the file to save.
 #'   The function automatically appends ".rds" to the name if not already included.
 #' @return No return value. Called for its side effects of saving the data to a file.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @examples
 #' \dontrun{
 #' search_results <- search_finna("sibelius")

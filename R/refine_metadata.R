@@ -12,6 +12,7 @@
 #' @param fill_na Logical. If `TRUE`, replaces `NA` values with placeholders. Defaults to `FALSE`.
 #' @param verbose Logical. If `TRUE`, prints a summary of missing values. Defaults to `FALSE`.
 #' @return A tibble with selected metadata fields, or NULL if required fields are missing.
+#' @author Akewak Jeba  \email{akewak84@@gmail.com}
 #' @import dplyr
 #' @export
 #' @examples
