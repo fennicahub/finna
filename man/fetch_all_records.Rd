@@ -45,5 +45,5 @@ records is reached.
 }
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

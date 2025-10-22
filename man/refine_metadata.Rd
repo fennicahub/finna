@@ -40,5 +40,5 @@ refine_metadata(sibelius_data, fill_na = TRUE, verbose = TRUE)
 
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

@@ -60,5 +60,5 @@ search_results <- search_finna("sibelius", sort = "main_date_str desc", limit = 
 print(search_results)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

@@ -34,5 +34,5 @@ publishers <- search_publisher("sibelius", limit = 10)
 print(publishers)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

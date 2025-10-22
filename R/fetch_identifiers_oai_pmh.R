@@ -5,7 +5,7 @@
 #' @param set A string. Optional. A set specifier.
 #' @param user_agent A string. Custom User-Agent. Default is "OAIHarvester/1.0".
 #' @return A tibble with identifier and setSpec.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr GET content user_agent
 #' @importFrom xml2 read_xml xml_find_all xml_text
 #' @importFrom tibble tibble

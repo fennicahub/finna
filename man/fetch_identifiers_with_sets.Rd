@@ -27,5 +27,5 @@ A tibble with identifier and setSpec.
 Fetches OAI-PMH record identifiers along with their setSpec (collection name).
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

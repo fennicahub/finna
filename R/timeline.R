@@ -9,7 +9,7 @@
 #' @param time.field Specify the field to be used for time. By default: "Year", or if time.window is 10, then "publication_decade"
 #' @param plot.type generates a plot with options like "lineplot" or "barplot".
 #' @return data.frame
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom tidyr pivot_wider
 #' @importFrom reshape2 melt
 #' @importFrom ggplot2 ggplot aes geom_line geom_bar theme_minimal labs

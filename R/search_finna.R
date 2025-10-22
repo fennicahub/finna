@@ -26,7 +26,7 @@
 #' @param lng A string for the language of returned translated strings. Options are "fi" - Finnish, "en-gb" - English, "sv" - Swedish, "se" - Sami. Defaults to "fi" - Finnish.
 #' @param prettyPrint A logical value indicating whether to pretty-print the JSON response. Useful for debugging. Defaults to FALSE.
 #' @return A tibble containing the search results with relevant fields extracted and provenance information.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' search_results <- search_finna("sibelius", sort = "main_date_str desc", limit = 100)
 #' print(search_results)

@@ -11,7 +11,7 @@
 #' @param total_limit Maximum number of records to fetch overall. Default is `Inf`.
 #' @param delay_after_query Delay in seconds between queries. Default is 5.
 #' @return A tibble containing all fetched records.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @export
 fetch_fennica_records <- function(base_query = "*",
                                   base_filters = c('collection:"FEN"',"finna.include_hidden_parts:1"),

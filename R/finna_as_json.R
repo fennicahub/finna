@@ -1,7 +1,7 @@
 #' Convert Finna query object to JSON
 #'
 #' @param x An object to convert (e.g., a Finna API query or response object).
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #'
 #' @keywords internal
 finna_as_json <- function(x) {

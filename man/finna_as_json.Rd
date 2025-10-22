@@ -16,6 +16,6 @@ finna_as_json(x)
 Convert Finna query object to JSON
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }
 \keyword{internal}

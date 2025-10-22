@@ -20,5 +20,5 @@ A bibliographic entry (\code{bibentry}) printed in the specified style.
 Automatically generates a citation for a Finna collection result.
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

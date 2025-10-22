@@ -10,7 +10,7 @@
 #' - `TRUE`: The API is accessible.
 #' - `FALSE`: The API is not accessible.
 #'
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom httr status_code
 #' @importFrom curl curl_download
 #' @export

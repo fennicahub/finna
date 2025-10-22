@@ -10,7 +10,7 @@
 #' @param filters A vector of filter queries to refine the search. Defaults to NULL.
 #' @param prettyPrint A logical value indicating whether to pretty-print the JSON response. Defaults to FALSE.
 #' @return A tibble containing the record IDs and their respective publishers.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @examples
 #' publishers <- search_publisher("sibelius", limit = 10)
 #' print(publishers)

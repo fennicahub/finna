@@ -26,5 +26,5 @@ enrich_author_name(url = "https://example/na_author_rows.csv",
 }
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

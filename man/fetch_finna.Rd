@@ -36,5 +36,5 @@ This function retrieves data from the Finna API and formats it as a tidy tibble.
 }
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

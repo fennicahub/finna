@@ -38,5 +38,5 @@ records <- get_finna_records("fikka.3405646", field = "title", prettyPrint = TRU
 print(records)
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }

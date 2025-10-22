@@ -5,7 +5,7 @@
 #'
 #' @seealso [search_finna()], [fetch_finna()], [finna_cite()]
 #' @return A dataframe containing the selected dataset or downloaded data.
-#' @author Akewak Jeba  \email{akewak84@@gmail.com}
+#' @author Akewak Jeba & Leo Lahti
 #' @importFrom utils menu
 #' @importFrom dplyr select arrange desc
 #' @importFrom utils URLdecode

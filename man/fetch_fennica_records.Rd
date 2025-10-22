@@ -36,5 +36,5 @@ A tibble containing all fetched records.
 This function fetches records from the Finna API in chunks divided by year ranges, handling missing date values for the Fennica collection.
 }
 \author{
-Akewak Jeba  \email{akewak84@gmail.com}
+Akewak Jeba & Leo Lahti
 }
