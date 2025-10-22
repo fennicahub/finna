@@ -39,6 +39,3 @@ sibelius_data <- search_finna("sibelius")
 refine_metadata(sibelius_data, fill_na = TRUE, verbose = TRUE)
 
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

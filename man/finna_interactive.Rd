@@ -15,6 +15,3 @@ Provides an interactive interface to search, select, and download datasets from 
 \seealso{
 \code{\link[=search_finna]{search_finna()}}, \code{\link[=fetch_finna]{fetch_finna()}}, \code{\link[=finna_cite]{finna_cite()}}
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

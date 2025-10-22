@@ -59,6 +59,3 @@ The function paginates through the results, fetching records until the specified
 search_results <- search_finna("sibelius", sort = "main_date_str desc", limit = 100)
 print(search_results)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

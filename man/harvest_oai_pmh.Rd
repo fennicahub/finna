@@ -94,6 +94,3 @@ user_agent = "MyCustomHarvester/1.0"
 )
 }
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

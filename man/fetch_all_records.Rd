@@ -44,6 +44,3 @@ records is reached.
   print(results)
 }
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

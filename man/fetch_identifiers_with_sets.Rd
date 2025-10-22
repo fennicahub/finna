@@ -26,6 +26,3 @@ A tibble with identifier and setSpec.
 \description{
 Fetches OAI-PMH record identifiers along with their setSpec (collection name).
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

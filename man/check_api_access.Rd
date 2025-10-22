@@ -29,6 +29,3 @@ a logical value indicating the accessibility of the API.
   }
 }
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

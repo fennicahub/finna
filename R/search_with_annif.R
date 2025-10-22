@@ -10,7 +10,7 @@
 #' @param annif_threshold An optional parameter to specify the minimum score threshold for Annif results. Default is 0.
 #' @param annif_language An optional parameter to specify the language of subject labels from Annif. Default is "en".
 #' @return A tibble of Finna records, each enriched with the top Annif subject suggestion.
-#' @author Akewak Jeba & Leo Lahti
+#'
 #' @importFrom dplyr mutate rowwise ungroup
 #' @importFrom httr POST status_code content accept
 #' @importFrom jsonlite fromJSON

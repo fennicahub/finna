@@ -11,7 +11,7 @@
 #' @param record_limit limits the number of records that the user wants to fetch
 #' @param output_file output file to be saved as a csv file.
 #' @param user_agent A string. A custom User-Agent string to identify the service. Default is "FinnaHarvester/1.0".
-#' @author Akewak Jeba & Leo Lahti
+#'
 #' @return A tibble with the harvested records containing selected metadata fields.
 #' @importFrom xml2 read_xml xml_find_all xml_find_first xml_text xml_attr xml_name xml_ns_strip
 #' @importFrom httr GET content user_agent

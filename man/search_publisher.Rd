@@ -33,6 +33,3 @@ This function retrieves only the publisher information from the Finna index base
 publishers <- search_publisher("sibelius", limit = 10)
 print(publishers)
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

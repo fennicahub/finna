@@ -35,6 +35,3 @@ A tibble containing all fetched records.
 \description{
 This function fetches records from the Finna API in chunks divided by year ranges, handling missing date values.
 }
-\author{
-Akewak Jeba & Leo Lahti
-}

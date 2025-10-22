@@ -19,6 +19,3 @@ A bibliographic entry (\code{bibentry}) printed in the specified style.
 \description{
 Automatically generates a citation for a Finna collection result.
 }
-\author{
-Akewak Jeba & Leo Lahti
-}
