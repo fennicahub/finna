@@ -9,7 +9,7 @@
 #'   \item{008}{Fixed-length data elements (008)}
 #'   \item{author_name}{Personal name of the main author (100a)}
 #'   \item{author_date}{Birth/death dates or period of activity (100d)}
-#'   \item{author_ID}{Combined authority ID from fields 100\$0 and 264a}
+#'   \item{author_ID}{Combined authority ID from fields 100$0 and 264a}
 #'   \item{language}{Language code(s) (041a)}
 #'   \item{language_original}{Original language (041h)}
 #'   \item{title_uniform}{Uniform title (240a)}
@@ -30,7 +30,7 @@
 #'   \item{650a}{Topical subject headings (650a)}
 #'   \item{general_note}{General note (500a)}
 #'   \item{700a}{Added entry – personal name (700a)}
-#'   \item{700_0}{Authority ID for added personal name (700\$0)}
+#'   \item{700_0}{Authority ID for added personal name (700$0)}
 #'   \item{a.15}{Unidentified field (likely placeholder or parsing artifact)}
 #' }
 #' @source \url{https://www.finna.fi/}

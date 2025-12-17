@@ -12,7 +12,7 @@ Maintainer: Akewak Jeba <akjeba@utu.fi>
 Description: Provides functions to access and retrieve metadata from the 'Finna' API <https://api.finna.fi/>, which aggregates content from Finnish archives, libraries, and museums.
 License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Imports: 
     dplyr,
     tidyr,
@@ -26,7 +26,8 @@ Imports:
     tibble,
     curl,
     progress,
-    purrr
+    purrr,
+    utils
 Suggests: 
     testthat (>= 3.0.0),
     rmarkdown,
@@ -34,7 +35,7 @@ Suggests:
 URL: https://fennicahub.github.io/finna/, https://CRAN.R-project.org/package=finna
 BugReports: https://github.com/fennicahub/finna/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Depends: 
