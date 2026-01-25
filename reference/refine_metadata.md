@@ -60,7 +60,7 @@ library(finna)
 sibelius_data <- search_finna("sibelius")
 #> Warning: Default limit of 100 records is being used. Specify 'limit' argument for more records.
 #> Total results found: 44905
-#> Data fetching completed in 0.62 seconds.
+#> Data fetching completed in 0.30 seconds.
 refine_metadata(sibelius_data, fill_na = TRUE, verbose = TRUE)
 #> No missing values found.
 #> # A tibble: 100 × 8

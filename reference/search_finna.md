@@ -98,7 +98,7 @@ and provenance information.
 search_results <- search_finna("sibelius", sort = "main_date_str desc", limit = 100)
 #> Warning: Default limit of 100 records is being used. Specify 'limit' argument for more records.
 #> Total results found: 44905
-#> Data fetching completed in 0.83 seconds.
+#> Data fetching completed in 0.45 seconds.
 print(search_results)
 #> # A tibble: 100 × 10
 #>    id                Title Author Year  Language Formats Subjects Library Series

@@ -108,14 +108,34 @@ appendices, QC notes) after retrieving records with the package.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="search_finna.html">search_finna</a></span><span class="op">(</span><span class="st">"sibelius"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Default limit of 100 records is being used. Specify 'limit' argument for more records.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Total results found: 44905</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.45 seconds.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Data fetching completed in 0.31 seconds.</span>
 <span class="r-in"><span><span class="va">overview</span> <span class="op">&lt;-</span> <span class="fu">summarize_metadata</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">record</span>,</span></span>
 <span class="r-in"><span>  fields <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"Title"</span>,<span class="st">"Author"</span>,<span class="st">"Year"</span>, <span class="st">"Language"</span>, <span class="st">"Formats"</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"Subjects"</span>, <span class="st">"Library"</span>, <span class="st">"Series"</span>, <span class="st">"last_indexed"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">overview</span> <span class="op">%&gt;%</span></span></span>
-<span class="r-in"><span>    <span class="fu">select</span><span class="op">(</span><span class="va">field</span>, <span class="va">n</span>, <span class="va">prop_missing</span>, <span class="va">n_unique</span>, <span class="va">top_values</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in overview %&gt;% select(field, n, prop_missing, n_unique, top_values):</span> could not find function "%&gt;%"</span>
+<span class="r-in"><span>  <span class="va">overview</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           field   n n_non_missing prop_missing n_unique</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            id 100           100         0.00      100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         Title 100           100         0.00        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        Author 100           100         0.00       49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          Year 100            98         0.02       40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Language 100            89         0.11        7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Formats 100           100         0.00       11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      Subjects 100            72         0.28       63</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       Library 100           100         0.00       62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        Series 100            23         0.77       14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 last_indexed 100             0         1.00        0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                  top_values</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                    abo.kortkat_044103 (1); abo.kortkat_051809 (1); abo.kortkat_099113 (1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                Sibelius (90); SIBELIUS (5); Sibelius. (4)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                       Sibelius, Jean (17); Häyrynen, Antti (11); Lampila, Hannu-Ilari (7)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                              1948 (8); 1997 (8); 1945 (6)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                              fin (42); zxx (19); eng (12)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                       Kirja, Kirja (52); Äänite, CD (17); Lehti/Artikkeli, Artikkeli (14)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                  Sibelius, Jean. (6); Sibelius, Jean (2); Sibelius, Jean,, 1865-1957. (2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  Kansalliskirjasto, Arto (20); Anders-kirjastot, Kokkola (5); Åbo Akademin kirjasto, Digitoitu korttikatalogi (–1981) (5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                        CD-sivut (4); Plus CD-lehti (4); Plus CD-sivut (3)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                                     &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
