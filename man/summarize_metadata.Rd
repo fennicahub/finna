@@ -42,7 +42,6 @@ overview <- summarize_metadata(
   record,
   fields = c("id", "Title","Author","Year", "Language", "Formats",
   "Subjects", "Library", "Series", "last_indexed"))
-  overview \%>\%
-    select(field, n, prop_missing, n_unique, top_values)
+  overview
 
 }

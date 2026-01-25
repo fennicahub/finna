@@ -30,8 +30,7 @@
 #'   record,
 #'   fields = c("id", "Title","Author","Year", "Language", "Formats",
 #'   "Subjects", "Library", "Series", "last_indexed"))
-#'   overview %>%
-#'     select(field, n, prop_missing, n_unique, top_values)
+#'   overview
 #'
 #' @export
 summarize_metadata <- function(data, fields = NULL, top_n = 3) {
