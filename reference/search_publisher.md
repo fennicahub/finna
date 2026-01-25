@@ -49,16 +49,16 @@ A tibble containing the record IDs and their respective publishers.
 publishers <- search_publisher("sibelius", limit = 10)
 print(publishers)
 #> # A tibble: 10 × 2
-#>    id    Publisher                   
-#>    <chr> <chr>                       
-#>  1 NA    Ondine                      
-#>  2 NA    OTAVA 1997                  
-#>  3 NA    Suuri suomalainen kirjakerho
-#>  4 NA    Otava                       
-#>  5 NA    Otava                       
-#>  6 NA    Söderström                  
-#>  7 NA    SCHILDT                     
-#>  8 NA    SÖDERSTRÖM                  
-#>  9 NA    Oxford University Press     
-#> 10 NA    Oxford university press     
+#>    id    Publisher                
+#>    <chr> <chr>                    
+#>  1 NA    Ondine                   
+#>  2 NA    NA                       
+#>  3 NA    Otava                    
+#>  4 NA    Kustannusosakeyhtiö Otava
+#>  5 NA    Gummerus                 
+#>  6 NA    Gummerus                 
+#>  7 NA    Gummerus                 
+#>  8 NA    Otava                    
+#>  9 NA    Otava                    
+#> 10 NA    Otava                    
 ```

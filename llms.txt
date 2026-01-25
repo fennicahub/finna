@@ -145,6 +145,8 @@ detailed information and certain exceptions.
 - [`search_finna_with_annif()`](search_finna_with_annif.md) : Search
   Finna and Enrich Records with Top Annif Subject Suggestion
 - [`search_publisher()`](search_publisher.md) : Finna Publisher Search
+- [`summarize_metadata()`](summarize_metadata.md) : Summarize metadata
+  fields for reporting and quality control
 - [`timeline()`](timeline.md) : Retrieve Timeline
 - [`top_plot()`](top_plot.md) : Plot Top Entries
 

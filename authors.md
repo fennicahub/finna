@@ -12,13 +12,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/fennicahub/finna/blob/main/DESCRIPTION)
 
-Jeba A, Lahti L (2025). *finna: Access the 'Finna' API*. R package
+Jeba A, Lahti L (2026). *finna: Access the 'Finna' API*. R package
 version 0.1.2, <https://fennicahub.github.io/finna/>.
 
     @Manual{,
       title = {finna: Access the 'Finna' API},
       author = {Akewak Jeba and Leo Lahti},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.1.2},
       url = {https://fennicahub.github.io/finna/},
     }

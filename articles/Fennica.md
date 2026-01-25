@@ -71,7 +71,7 @@ result_count <- attr(fennica, "result_count")
 print(result_count)
 ```
 
-    ## [1] 57130
+    ## [1] 57112
 
 To fetch the whole data using batches of years we can use the
 [`fetch_fennica_records()`](../reference/fetch_fennica_records.md)

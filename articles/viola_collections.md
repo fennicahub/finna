@@ -41,7 +41,7 @@ results <- fetch_viola_records(
 print(nrow(results))
 ```
 
-    ## [1] 3322
+    ## [1] 3313
 
 ``` r
 head(results)
@@ -73,7 +73,7 @@ undated_records <- search_finna(
 print(undated_records)
 ```
 
-    ## # A tibble: 2,482 × 10
+    ## # A tibble: 2,473 × 10
     ##    id             Title    Author Year  Language Formats Subjects Library Series
     ##    <chr>          <chr>    <chr>  <chr> <chr>    <chr>   <chr>    <chr>   <chr> 
     ##  1 fikka.2834441  Graduale NA     NA    lat      Kirja,… arkisto… Kansal… NA    
@@ -86,7 +86,7 @@ print(undated_records)
     ##  8 fikka.4941590  Demo     NA     NA    zxx      Äänite… NA       Kansal… NA    
     ##  9 fikka.4941603  Boogie … NA     NA    zxx      Äänite… NA       Kansal… NA    
     ## 10 fikka.4941825  Close-up NA     NA    zxx      Äänite… NA       Kansal… NA    
-    ## # ℹ 2,472 more rows
+    ## # ℹ 2,463 more rows
     ## # ℹ 1 more variable: last_indexed <chr>
 
 To fetch the whole data using batches of years we can use the

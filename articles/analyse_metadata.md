@@ -36,15 +36,15 @@ print(refined_data)
     ##    Title                   Author Year  Language Formats Subjects Library Series
     ##    <chr>                   <chr>  <chr> <chr>    <chr>   <chr>    <chr>   <chr> 
     ##  1 Sibelius favourites : … Sibel… 2001  NA       Äänite… NA       Lapin … NA    
-    ##  2 SIBELIUS                TAWAS… 1997  fin      Kirja,… SIBELIUS Anders… NA    
-    ##  3 Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Kansal… NA    
-    ##  4 Sibelius                Tawas… 2003  fin      Kirja,… Sibeliu… Blanka… NA    
-    ##  5 Sibelius                Downe… 1945  fin      Kirja,… Sibeliu… Heili-… NA    
-    ##  6 Sibelius                Tawas… 1968  swe      Kirja,… Sibeliu… Anders… NA    
-    ##  7 SIBELIUS                RINGB… 1948  swe      Kirja,… SIBELIU… Helle-… NA    
-    ##  8 SIBELIUS                TAWAS… 1968  swe      Kirja,… SIBELIU… Helle-… NA    
-    ##  9 Sibelius                Gray,… 1934  eng      Kirja,… Sibeliu… PIKI-k… NA    
-    ## 10 Sibelius                Gray,… 1945  eng      Kirja,… Sibeliu… Vanamo… NA    
+    ##  2 Sibelius                Lampi… 1995  fin      Kirja,… Sibeliu… Anders… NA    
+    ##  3 Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Anders… NA    
+    ##  4 Sibelius                Lampi… 1984  fin      Kirja,… Sibeliu… Blanka… NA    
+    ##  5 Sibelius                Tawas… 1997  fin      Kirja,… Sibeliu… Blanka… NA    
+    ##  6 Sibelius                Ringb… 1948  swe      Kirja,… Sibeliu… Lukki-… NA    
+    ##  7 Sibelius                Ringb… 1948  swe      Kirja,… Jean Si… Svensk… NA    
+    ##  8 Sibelius                Barne… 2007  eng      Kirja,… Sibeliu… Helmet… NA    
+    ##  9 Sibelius.               Ottaw… 1968  NA       Kirja,… NA       Åbo Ak… NA    
+    ## 10 Sibelius                Sibel… 2017  zxx      Äänite… NA       Keski-… NA    
     ## # ℹ 90 more rows
 
 ### Visualizing Metadata Distribution
