@@ -68,6 +68,8 @@ search_finna <- function(query = NULL,#lookfor
   # Initialize last_indexed filter for pagination beyond 100,000 records
   last_indexed_filter <- NULL
   last_id <- NULL
+  attempt <- 0
+  max_attempts <- 5
 
   while (total_fetched < limit) {
     # Calculate the remaining number of records to fetch

@@ -35,8 +35,8 @@ Suggests:
 URL: https://fennicahub.github.io/finna/, https://CRAN.R-project.org/package=finna
 BugReports: https://github.com/fennicahub/finna/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Depends: 
     R (>= 3.5)
+Config/roxygen2/version: 8.0.0

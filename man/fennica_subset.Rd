@@ -41,7 +41,7 @@ A data frame with 300 rows and 28 variables:
 \url{https://www.finna.fi/}
 }
 \usage{
-fennica_subset
+data(fennica_subset)
 }
 \description{
 A 300-record sample from the Fennica dataset (Melinda) for demonstration and testing.
