@@ -45,6 +45,7 @@ You can also fetch records missing the `main_date_str` field:
 
 ```{r message = FALSE, warning = FALSE}
 # Fetch undated records
+library(finna)
 undated_records <- search_finna(
   query = "*",
   filters = c('collection:"VIO"', '-main_date_str:*'),
@@ -57,7 +58,7 @@ print(undated_records)
 To fetch the whole data using batches of years we can use the `fetch_viola_records()` function as which provides all the viola data in the given interval including the `NA` dates and hidden parts
 
 ```{r message = FALSE, warning = FALSE}
-results <- fetch_viola_records(
+result <- fetch_viola_records(
     base_query = "*",
     base_filters = c('collection:"VIO"'), # Filters for the Viola collection
     year_ranges = list(c(0,1699)),           # Year ranges to query
@@ -66,7 +67,7 @@ results <- fetch_viola_records(
     total_limit = Inf,                 # Overall record limit
     delay_after_query = 3                # Delay between API calls
 )
-result <- head(results)
+result <- head(result)
 print(result)
 ```
 
